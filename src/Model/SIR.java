@@ -1,4 +1,4 @@
-package SIR;
+package Model;
 
 public class SIR extends SimulationModel {
 

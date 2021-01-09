@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7af4ccbd-cd92-4994-bf9a-5cd337fbe65b" name="Default Changelist" comment="update project" />
+    <list default="true" id="7af4ccbd-cd92-4994-bf9a-5cd337fbe65b" name="Default Changelist" comment="update project">
+      <change afterPath="$PROJECT_DIR$/src/Controller/Controller.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Model/Model.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/View/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SIR/Behaviour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Behaviour.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SIR/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Graph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SIR/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SIR/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Map.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SIR/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SIR/SEIR.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/SEIR.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SIR/SEIRBorn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/SEIRBorn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SIR/SIR.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/SIR.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SIR/SimulationModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/SimulationModel.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,14 +44,8 @@
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="SIR.Main" />
+      <option name="MAIN_CLASS_NAME" value="View.Main" />
       <module name="SIR_Project" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="SIR.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>

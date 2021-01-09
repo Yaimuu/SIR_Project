@@ -1,4 +1,5 @@
-package SIR;
+package Controller;
 
 public class Behaviour {
+
 }
