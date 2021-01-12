@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="7af4ccbd-cd92-4994-bf9a-5cd337fbe65b" name="Default Changelist" comment="update project" />
+    <list default="true" id="7af4ccbd-cd92-4994-bf9a-5cd337fbe65b" name="Default Changelist" comment="JavaFX setup">
+      <change afterPath="$PROJECT_DIR$/src/Controller/InputController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/Main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Main.fxml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,6 +17,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -27,26 +35,24 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PATH_TO_FX$/javafx.fxml/javafx/fxml/FXML.java" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.JavaFX" />
   </component>
   <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="SIR.Main" />
+    <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="openjdk-15" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="View.Main" />
       <module name="SIR_Project" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="SIR.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+      <option name="VM_PARAMETERS" value="--module-path &quot;D:\Developpement\Java_JDKs\javafx-sdk-15.0.1\lib&quot; --add-modules javafx.controls,javafx.fxml" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Main" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -64,7 +70,21 @@
       <option name="project" value="LOCAL" />
       <updated>1607695901751</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Mise en place du MVC">
+      <created>1610151258101</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1610151258101</updated>
+    </task>
+    <task id="LOCAL-00003" summary="JavaFX setup">
+      <created>1610464536062</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1610464536062</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -81,6 +101,12 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="update project" />
-    <option name="LAST_COMMIT_MESSAGE" value="update project" />
+    <MESSAGE value="Mise en place du MVC" />
+    <MESSAGE value="JavaFX setup" />
+    <option name="LAST_COMMIT_MESSAGE" value="JavaFX setup" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

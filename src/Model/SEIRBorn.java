@@ -1,4 +1,4 @@
-package SIR;
+package Model;
 
 public class SEIRBorn extends SEIR {
 
