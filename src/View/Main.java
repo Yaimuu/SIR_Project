@@ -25,6 +25,7 @@ public class Main extends Application {
             stage.setTitle("Epidemic simulation project");
             stage.setScene(new Scene(root));
             stage.show();
+
         }
         catch(Exception e)
         {
