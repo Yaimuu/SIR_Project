@@ -1,4 +1,6 @@
 package Model;
 
-public class Map {
+public class Map  implements Model
+{
+
 }

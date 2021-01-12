@@ -1,4 +1,6 @@
 package Model;
 
-public class Graph {
+public class Graph implements Model
+{
+
 }

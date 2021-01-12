@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="7af4ccbd-cd92-4994-bf9a-5cd337fbe65b" name="Default Changelist" comment="update project">
-      <change afterPath="$PROJECT_DIR$/src/Controller/Controller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/Model.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View/Main.java" afterDir="false" />
+    <list default="true" id="7af4ccbd-cd92-4994-bf9a-5cd337fbe65b" name="Default Changelist" comment="Mise en place du MVC">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/BehaviourController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/View/LineChartSIR.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SIR/Behaviour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Behaviour.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SIR/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Graph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SIR/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SIR/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Map.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SIR/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SIR/SEIR.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/SEIR.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SIR/SEIRBorn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/SEIRBorn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SIR/SIR.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/SIR.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SIR/SimulationModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/SimulationModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SIR_Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SIR_Project.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Behaviour.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Graph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Map.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Model.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/SIR.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/SIR.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/SimulationModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/SimulationModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +29,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -41,20 +46,24 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PATH_TO_FX$/javafx.fxml/javafx/fxml/FXML.java" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.JavaFX" />
   </component>
   <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="openjdk-15" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="View.Main" />
       <module name="SIR_Project" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;D:\Developpement\Java_JDKs\javafx-sdk-15.0.1\lib&quot; --add-modules javafx.controls,javafx.fxml" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Main" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -72,7 +81,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607695901751</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Mise en place du MVC">
+      <created>1610151258101</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1610151258101</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -89,6 +105,11 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="update project" />
-    <option name="LAST_COMMIT_MESSAGE" value="update project" />
+    <MESSAGE value="Mise en place du MVC" />
+    <option name="LAST_COMMIT_MESSAGE" value="Mise en place du MVC" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

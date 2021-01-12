@@ -1,5 +1,6 @@
 package Model;
 
-public class SIR extends SimulationModel {
+public class SIR extends SimulationModel
+{
 
 }

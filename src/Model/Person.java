@@ -1,6 +1,7 @@
 package Model;
 
-public class Person {
+public class Person implements Model
+{
 
 
 
