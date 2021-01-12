@@ -18,8 +18,8 @@
           <NumberAxis side="LEFT" />
         </yAxis>
       </LineChart>
-      <Slider id="testSlider" layoutX="398.0" layoutY="193.0" />
-      <TextField id="testTextField" layoutX="393.0" layoutY="119.0" />
-      <Button id="testButton" layoutX="441.0" layoutY="157.0" mnemonicParsing="false" onAction="#testButtonMethod" text="Button" />
+      <Slider fx:id="testSlider" layoutX="398.0" layoutY="193.0" />
+      <TextField fx:id="testTextField" layoutX="393.0" layoutY="119.0" />
+      <Button fx:id="testButton" layoutX="441.0" layoutY="157.0" mnemonicParsing="false" onAction="#testButtonMethod" text="Button" />
    </children>
 </AnchorPane>
