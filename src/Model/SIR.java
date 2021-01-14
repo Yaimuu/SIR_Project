@@ -14,6 +14,11 @@ public class SIR extends SimulationModel
         return res;
     }
 
-
+    enum State
+    {
+        Safe,
+        Infected,
+        Recovered
+    }
 
 }

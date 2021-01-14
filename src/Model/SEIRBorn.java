@@ -1,5 +1,7 @@
 package Model;
 
-public class SEIRBorn extends SEIR {
+public class SEIRBorn extends SEIR
+{
+    private Double bornRate;
 
 }

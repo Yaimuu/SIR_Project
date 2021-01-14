@@ -10,9 +10,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="498.0" prefWidth="1014.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.InputController">
+<AnchorPane prefHeight="498.0" prefWidth="1014.0" style="-fx-background-color: #36393F;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MainController">
    <children>
-      <LineChart fx:id="chartSIR" layoutY="14.0" prefHeight="243.0" prefWidth="530.0" title="SIR evolution" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <LineChart fx:id="chartSIR" layoutY="14.0" prefHeight="243.0" prefWidth="530.0" style="-fx-background-color: white;" title="SIR evolution" AnchorPane.bottomAnchor="260.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
         <xAxis>
           <CategoryAxis side="BOTTOM" />
         </xAxis>
@@ -20,11 +20,10 @@
           <NumberAxis side="LEFT" />
         </yAxis>
       </LineChart>
-      <Canvas height="243.0" layoutX="108.0" layoutY="243.0" width="530.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" />
-      <Pane layoutX="563.0" layoutY="192.0" prefHeight="498.0" prefWidth="494.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Pane layoutX="563.0" layoutY="192.0" prefHeight="498.0" prefWidth="494.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="530.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <TextField fx:id="sampleTextField" layoutX="192.0" layoutY="170.0" />
-            <Button fx:id="testButton" layoutX="14.0" layoutY="20.0" mnemonicParsing="false" onAction="#startButtonMethod" text="Start Simulation" />
+            <Button fx:id="startButton" layoutX="14.0" layoutY="20.0" mnemonicParsing="false" onAction="#startButtonMethod" text="Start Simulation" />
             <ToggleButton layoutX="146.0" layoutY="444.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Quarantaine" />
             <ToggleButton layoutX="261.0" layoutY="444.0" mnemonicParsing="false" text="Port du masque" />
             <ToggleButton layoutX="34.0" layoutY="444.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Confinement" />
@@ -32,7 +31,12 @@
             <Slider fx:id="alphaSlider" layoutX="19.0" layoutY="208.0" />
             <Slider fx:id="initialInfectedSlider" layoutX="19.0" layoutY="258.0" />
             <Slider fx:id="betaSlider" layoutX="19.0" layoutY="234.0" />
-            <Button fx:id="testButton1" layoutX="134.0" layoutY="20.0" mnemonicParsing="false" onAction="#startButtonMethod" text="Stop Simulation" />
+            <Button fx:id="resetButton" layoutX="134.0" layoutY="20.0" mnemonicParsing="false" onAction="#startButtonMethod" text="Stop Simulation" />
+         </children>
+      </Pane>
+      <Pane layoutX="127.0" layoutY="235.0" prefHeight="258.0" prefWidth="530.0" style="-fx-background-color: #36393F;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="240.0">
+         <children>
+            <Canvas fx:id="canvas" height="240.0" width="530.0" />
          </children>
       </Pane>
    </children>
