@@ -12,9 +12,9 @@ import java.util.List;
 
 public class BehaviourController implements Controller
 {
-    public int numberPeople = 10;
-    public List<PersonView> people = new LinkedList<PersonView>();
-    public Canvas canvas;
+    private int numberPeople = 20;
+    private List<PersonView> people = new LinkedList<PersonView>();
+    private Canvas canvas;
 
     public BehaviourController()
     {
@@ -39,6 +39,16 @@ public class BehaviourController implements Controller
         this.canvas = c;
     }
 
+    public void resetPeople()
+    {
+        this.people = this.GeneratePeople(this.numberPeople);
+    }
+
+    public void resetPeople(int nbPeople)
+    {
+        this.people = this.GeneratePeople(nbPeople);
+    }
+
     private List<PersonView> GeneratePeople(int nbPeople)
     {
         List<PersonView> pv = new LinkedList<PersonView>();
@@ -52,4 +62,27 @@ public class BehaviourController implements Controller
         return pv;
     }
 
+    public int getNumberPeople() {
+        return numberPeople;
+    }
+
+    public void setNumberPeople(int numberPeople) {
+        this.numberPeople = numberPeople;
+    }
+
+    public List<PersonView> getPeople() {
+        return people;
+    }
+
+    public void setPeople(List<PersonView> people) {
+        this.people = people;
+    }
+
+    public Canvas getCanvas() {
+        return canvas;
+    }
+
+    public void setCanvas(Canvas canvas) {
+        this.canvas = canvas;
+    }
 }

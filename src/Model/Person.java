@@ -1,28 +1,36 @@
 package Model;
 
 import com.sun.javafx.geom.Vec2d;
+import javafx.scene.shape.Circle;
 
 public class Person implements Model
 {
-    private float radius;
+    private double radius = 20;
     private Vec2d position;
     private Vec2d speed;
+    private double direction;
 
     public Person()
     {
-        double ranPosX = 0 + Math.random() * (100 - 0);
-        double ranPosY = 0 + Math.random() * (100 - 0);
-        /*this.setPosition(new Vec2d(10, 10));
-        this.setRadius(5);
-        this.setSpeed(new Vec2d(1, 1));*/
-        this.radius = 5;
+        //this.radius = 10;
+        double ranPosX = this.radius + Math.random() * (500 - this.radius);
+        double ranPosY = this.radius + Math.random() * (200 - this.radius);
+        double ranSpeedX = 1 + Math.random() * (50 - 1);
+        double ranSpeedY = 1 + Math.random() * (50 - 1);
+        double ranDir = 0 + Math.random() * (360 - 0);
+
+        this.direction = ranDir;
         this.position = new Vec2d(ranPosX, ranPosY);
-        this.speed = new Vec2d(1, 1);
+        //this.speed = new Vec2d((double)(ranSpeedX/100), (double)(ranSpeedY/100));
+        this.speed = new Vec2d(0.7d, 0.7d);
     }
 
     public Person(float x, float y)
     {
-        this.radius = 5;
+        //this.radius = 10;
+
+        double ranDir = 0 + Math.random() * (360 - 0);
+        this.direction = ranDir;
         this.position = new Vec2d(x, y);
         this.speed = new Vec2d(1, 1);
     }
@@ -33,17 +41,49 @@ public class Person implements Model
         this.speed.y *= -1;
     }
 
-    public void Move()
+    public void isCollidingPerson(Person p)
     {
-        this.position.x += this.speed.x;
-        this.position.y += this.speed.y;
+        double dx = this.getPosition().x - p.getPosition().x;
+        double dy = this.getPosition().y - p.getPosition().y;
+        double rSum = this.getRadius() + p.getRadius();
+
+        if( Math.sqrt(dx * dx + dy * dy) < rSum )
+        {
+//            System.out.println("collision");
+//            this.direction = 180 - this.direction;
+//            this.OnCollisionEnter();
+        }
     }
 
-    public float getRadius() {
+    public void isCollidingBounds(double width, double heigth)
+    {
+        if( this.getPosition().x >= width || this.getPosition().x - this.getRadius() <= 0 )
+        {
+            this.direction = 180 - this.direction;
+        }
+
+        if( this.getPosition().y >= heigth || this.getPosition().y - this.getRadius() <= 0 )
+        {
+            this.direction = 360 - this.direction;
+        }
+    }
+
+    public void move()
+    {
+        this.position.x += this.speed.x *  Math.cos(this.direction * Math.PI /180);
+        this.position.y += this.speed.y * Math.sin(this.direction * Math.PI /180);
+    }
+
+    /*public void ChangeState(State newState)
+    {
+
+    }*/
+
+    public double getRadius() {
         return radius;
     }
 
-    public void setRadius(float radius) {
+    public void setRadius(double radius) {
         this.radius = radius;
     }
 
@@ -62,10 +102,5 @@ public class Person implements Model
     public void setSpeed(Vec2d speed) {
         this.speed = speed;
     }
-
-    /*public void ChangeState(State newState)
-    {
-
-    }*/
 
 }

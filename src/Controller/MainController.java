@@ -2,7 +2,6 @@ package Controller;
 
 import Model.SimulationModel;
 import View.SpatialisationView;
-import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -14,8 +13,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
+import java.awt.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -40,6 +39,11 @@ public class MainController implements Initializable {
     private ComboBox modelComboBox;
 
     @FXML
+    private Panel graphPanel;
+    @FXML
+    private Panel mapPanel;
+
+    @FXML
     private Canvas canvas;
 
 
@@ -50,40 +54,45 @@ public class MainController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources)
     {
-        // TODO (add Listeners here).
-
         this.spatialisationView = new SpatialisationView(canvas);
         spatialisationView.canvasInitialization();
 
         // Adding Listener to value property.
-        alphaSlider.valueProperty().addListener(new ChangeListener<Number>() {
+        this.alphaSlider.valueProperty().addListener(new ChangeListener<Number>() {
 
             @Override
             public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue)
             {
-                //testTextField.setText("New value: " + newValue);
+                //sampleTextField.setText("New value: " + newValue);
             }
         });
 
-        startButton.setOnAction(new EventHandler<ActionEvent>() {
+        this.startButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
 
                 if(!spatialisationView.isStart())
                 {
                     spatialisationView.setStart(true);
                     startButton.textProperty().set("Stop Simulation");
-                    spatialisationView.Start();
+                    spatialisationView.start();
                 }
                 else
                 {
                     spatialisationView.setStart(false);
                     startButton.textProperty().set("Start Simulation");
-                    spatialisationView.Stop();
+                    spatialisationView.stop();
                 }
-
             }
         });
 
+        this.resetButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override public void handle(ActionEvent e) {
+
+                spatialisationView.reset();
+            }
+        });
+
+        //this.sampleTextField.onActionProperty().addListener();
     }
 
     // When user click on myButton
@@ -97,6 +106,18 @@ public class MainController implements Initializable {
         // Show in VIEW
         testTextField.setText(test);*/
 
+    }
+
+    public void toggleModelisationType()
+    {
+        if(this.modelComboBox.isPressed())
+        {
+
+        }
+        else
+        {
+
+        }
     }
 
 }
