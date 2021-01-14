@@ -4,10 +4,11 @@ public abstract class SimulationModel implements Model
 {
     protected int step;
     protected boolean spatialization;
-    protected float S;
-    protected float I;
-    protected float R;
-
+    protected double S;
+    protected double I;
+    protected double R;
+    protected double alpha;
+    protected double beta;
 
 
 }
