@@ -1,14 +1,24 @@
 package Model;
 
 import com.sun.javafx.geom.Vec2d;
+import com.sun.webkit.Timer;
+import javafx.animation.AnimationTimer;
 import javafx.scene.shape.Circle;
 
 public class Person implements Model
 {
-    private double radius = 20;
+    private double radius = 30;
     private Vec2d position;
     private Vec2d speed;
     private double direction;
+    private boolean collision = false;
+
+    private enum State
+    {
+        Safe,
+        Infected,
+        Recovered
+    }
 
     public Person()
     {
@@ -43,15 +53,19 @@ public class Person implements Model
 
     public void isCollidingPerson(Person p)
     {
-        double dx = this.getPosition().x - p.getPosition().x;
-        double dy = this.getPosition().y - p.getPosition().y;
-        double rSum = this.getRadius() + p.getRadius();
-
-        if( Math.sqrt(dx * dx + dy * dy) < rSum )
+        if(p != this)
         {
-//            System.out.println("collision");
-//            this.direction = 180 - this.direction;
-//            this.OnCollisionEnter();
+            double dx = this.getPosition().x - p.getPosition().x;
+            double dy = this.getPosition().y - p.getPosition().y;
+            //double rSum = this.getRadius() + p.getRadius();
+
+            if( Math.sqrt(dx * dx + dy * dy) < this.getRadius() && !collision)
+            {
+//                System.out.println("collision");
+                this.direction -= 90;
+                //this.OnCollisionEnter();
+                this.collision = true;
+            }
         }
     }
 
@@ -78,6 +92,12 @@ public class Person implements Model
     {
 
     }*/
+
+    private void resetCollision()
+    {
+
+        this.collision = false;
+    }
 
     public double getRadius() {
         return radius;

@@ -4,24 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7af4ccbd-cd92-4994-bf9a-5cd337fbe65b" name="Default Changelist" comment="Some UI changes">
-      <change afterPath="$PROJECT_DIR$/src/Controller/SettingsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View/ChartView.java" afterDir="false" />
+    <list default="true" id="7af4ccbd-cd92-4994-bf9a-5cd337fbe65b" name="Default Changelist" comment="Spatialisation Update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SIR_Project/Model/Person.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SIR_Project/Model/Person.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SIR_Project/View/SpatialisationView$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SIR_Project/View/SpatialisationView$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SIR_Project/View/SpatialisationView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SIR_Project/View/SpatialisationView.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/BehaviourController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/BehaviourController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/SettingsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SettingsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Graph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Map.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/SEIR.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/SEIR.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/SEIRBorn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/SEIRBorn.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/SIR.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/SIR.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/SimulationModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/SimulationModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/View/Main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Main.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/PersonView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/PersonView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/View/SpatialisationView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/SpatialisationView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/View.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,7 +144,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610492686382</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Spatialisation Update">
+      <created>1610665405529</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1610665405529</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -171,7 +172,8 @@
     <MESSAGE value="JavaFX setup" />
     <MESSAGE value="Test elements with JavaFX" />
     <MESSAGE value="Some UI changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Some UI changes" />
+    <MESSAGE value="Spatialisation Update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Spatialisation Update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

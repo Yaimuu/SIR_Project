@@ -8,12 +8,7 @@ public class SIR extends SimulationModel
     protected double I;
     protected double R;
 
-    enum State
-    {
-        Safe,
-        Infected,
-        Recovered
-    }
+
 
     public Vector<Double> calculateStep()
     {

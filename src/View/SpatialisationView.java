@@ -91,7 +91,7 @@ public class SpatialisationView implements View
         gc.setFill(Color.FORESTGREEN);
 
         Person lastPerson = null;
-        for (PersonView pv: this.bc.getPeople())
+        for (PersonView pv : this.bc.getPeople())
         {
             pv.getPerson().isCollidingBounds(this.bc.getCanvas().getWidth(), this.bc.getCanvas().getHeight());
             for(int i = 0; i < this.bc.getPeople().stream().count(); i++)
@@ -104,7 +104,6 @@ public class SpatialisationView implements View
                 lastPerson = this.bc.getPeople().get(i).getPerson();
             }
             lastPerson = pv.getPerson();
-
         }
 
         for (PersonView pv: this.bc.getPeople())

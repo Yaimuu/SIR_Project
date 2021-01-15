@@ -9,10 +9,10 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.control.*;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Pane;
 
 import java.awt.*;
 import java.net.URL;
@@ -24,6 +24,9 @@ public class MainController implements Initializable {
     public Button startButton;
     @FXML
     public Button resetButton;
+
+    @FXML
+    private ToggleButton toggleSimulation;
 
     @FXML
     private TextField sampleTextField;
@@ -39,23 +42,30 @@ public class MainController implements Initializable {
     private ComboBox modelComboBox;
 
     @FXML
-    private Panel graphPanel;
+    private Pane graphPanel;
     @FXML
-    private Panel mapPanel;
+    private Pane mapPanel;
+    @FXML
+    private Pane graphInputPanel;
+    @FXML
+    private Pane mapInputPanel;
 
     @FXML
     private Canvas canvas;
 
-
     private SimulationModel model;
     private SpatialisationView spatialisationView;
-
 
     @Override
     public void initialize(URL location, ResourceBundle resources)
     {
+        // TODO : Gestion des inputs
+
         this.spatialisationView = new SpatialisationView(canvas);
-        spatialisationView.canvasInitialization();
+        this.spatialisationView.canvasInitialization();
+
+        this.mapPanel.setVisible(false);
+        this.mapInputPanel.setVisible(false);
 
         // Adding Listener to value property.
         this.alphaSlider.valueProperty().addListener(new ChangeListener<Number>() {
@@ -63,7 +73,8 @@ public class MainController implements Initializable {
             @Override
             public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue)
             {
-                //sampleTextField.setText("New value: " + newValue);
+                System.out.println("New value: " + newValue);
+
             }
         });
 
@@ -95,28 +106,33 @@ public class MainController implements Initializable {
         //this.sampleTextField.onActionProperty().addListener();
     }
 
-    // When user click on myButton
-    // this method will be called.
-    public void startButtonMethod(ActionEvent event)
+    public void toggleSimulationModel()
     {
-        /*System.out.println("Button Clicked!");
-
-        String test = "Test";
-
-        // Show in VIEW
-        testTextField.setText(test);*/
-
     }
 
-    public void toggleModelisationType()
+    public void toggleModelType()
     {
-        if(this.modelComboBox.isPressed())
+        if(this.toggleSimulation.isSelected())
         {
+            this.graphPanel.setVisible(false);
+            this.graphInputPanel.setVisible(false);
 
+            this.mapPanel.setVisible(true);
+            this.mapInputPanel.setVisible(true);
+
+            this.toggleSimulation.setText("Graph Visualization");
         }
         else
         {
+            this.graphPanel.setVisible(true);
+            this.graphInputPanel.setVisible(true);
 
+            this.mapPanel.setVisible(false);
+            this.mapInputPanel.setVisible(false);
+
+            this.spatialisationView.stop();
+
+            this.toggleSimulation.setText("Map Visualization");
         }
     }
 

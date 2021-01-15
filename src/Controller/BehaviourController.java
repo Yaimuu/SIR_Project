@@ -12,7 +12,7 @@ import java.util.List;
 
 public class BehaviourController implements Controller
 {
-    private int numberPeople = 20;
+    private int numberPeople = 10;
     private List<PersonView> people = new LinkedList<PersonView>();
     private Canvas canvas;
 
