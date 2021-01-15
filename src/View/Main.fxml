@@ -17,12 +17,12 @@
             <Pane id="mapInputPanel" fx:id="mapInputPanel" prefHeight="498.0" prefWidth="484.0">
                <children>
                   <Button fx:id="startButton" layoutX="103.0" layoutY="76.0" mnemonicParsing="false" text="Start Simulation" />
-                  <Button fx:id="resetButton" layoutX="242.0" layoutY="76.0" mnemonicParsing="false" onAction="#startButtonMethod" text="Reset Simulation" />
+                  <Button fx:id="resetButton" layoutX="242.0" layoutY="76.0" mnemonicParsing="false" text="Reset Simulation" />
+                  <TextField fx:id="sampleTextField" />
                </children>
             </Pane>
             <Pane id="graphInputPanel" fx:id="graphInputPanel" prefHeight="498.0" prefWidth="484.0">
                <children>
-                  <TextField fx:id="sampleTextField" layoutX="182.0" layoutY="237.0" />
                   <ToggleButton layoutX="315.0" layoutY="459.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Quarantaine" />
                   <ToggleButton layoutX="192.0" layoutY="459.0" mnemonicParsing="false" text="Port du masque" />
                   <ToggleButton layoutX="69.0" layoutY="459.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Confinement" />
@@ -30,6 +30,7 @@
                   <Slider fx:id="alphaSlider" layoutX="42.0" layoutY="374.0" />
                   <Slider fx:id="initialInfectedSlider" layoutX="42.0" layoutY="335.0" />
                   <Slider fx:id="betaSlider" layoutX="42.0" layoutY="355.0" />
+                  <Pane layoutX="-1.0" layoutY="298.0" prefHeight="135.0" prefWidth="484.0" />
                </children>
             </Pane>
             <ToggleButton id="toggleSimulation" fx:id="toggleSimulation" layoutX="360.0" layoutY="14.0" mnemonicParsing="false" onAction="#toggleModelType" text="Map Visualization" />

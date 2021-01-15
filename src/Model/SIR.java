@@ -1,5 +1,6 @@
 package Model;
 
+import java.util.List;
 import java.util.Vector;
 
 public class SIR extends SimulationModel
@@ -20,5 +21,8 @@ public class SIR extends SimulationModel
     }
 
 
-
+    @Override
+    public List<List<Double>> calculateStep(List<List<Double>> yModel, int i, int j) {
+        return null;
+    }
 }

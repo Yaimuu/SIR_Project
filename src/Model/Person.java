@@ -12,17 +12,18 @@ public class Person implements Model
     private Vec2d speed;
     private double direction;
     private boolean collision = false;
+    private State state = State.Safe;
 
     private enum State
     {
         Safe,
+        Exposed,
         Infected,
         Recovered
     }
 
     public Person()
     {
-        //this.radius = 10;
         double ranPosX = this.radius + Math.random() * (500 - this.radius);
         double ranPosY = this.radius + Math.random() * (200 - this.radius);
         double ranSpeedX = 1 + Math.random() * (50 - 1);
@@ -37,8 +38,6 @@ public class Person implements Model
 
     public Person(float x, float y)
     {
-        //this.radius = 10;
-
         double ranDir = 0 + Math.random() * (360 - 0);
         this.direction = ranDir;
         this.position = new Vec2d(x, y);
