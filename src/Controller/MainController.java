@@ -2,7 +2,6 @@ package Controller;
 
 import Model.SimulationModel;
 import View.SpatialisationView;
-import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -10,12 +9,12 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.control.*;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
+import javafx.scene.layout.Pane;
 
+import java.awt.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -25,6 +24,9 @@ public class MainController implements Initializable {
     public Button startButton;
     @FXML
     public Button resetButton;
+
+    @FXML
+    private ToggleButton toggleSimulation;
 
     @FXML
     private TextField sampleTextField;
@@ -40,63 +42,98 @@ public class MainController implements Initializable {
     private ComboBox modelComboBox;
 
     @FXML
-    private Canvas canvas;
+    private Pane graphPanel;
+    @FXML
+    private Pane mapPanel;
+    @FXML
+    private Pane graphInputPanel;
+    @FXML
+    private Pane mapInputPanel;
 
+    @FXML
+    private Canvas canvas;
 
     private SimulationModel model;
     private SpatialisationView spatialisationView;
 
-
     @Override
     public void initialize(URL location, ResourceBundle resources)
     {
-        // TODO (add Listeners here).
+        // TODO : Gestion des inputs
 
         this.spatialisationView = new SpatialisationView(canvas);
-        spatialisationView.canvasInitialization();
+        this.spatialisationView.canvasInitialization();
+
+        this.mapPanel.setVisible(false);
+        this.mapInputPanel.setVisible(false);
 
         // Adding Listener to value property.
-        alphaSlider.valueProperty().addListener(new ChangeListener<Number>() {
+        this.alphaSlider.valueProperty().addListener(new ChangeListener<Number>() {
 
             @Override
             public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue)
             {
-                //testTextField.setText("New value: " + newValue);
+                System.out.println("New value: " + newValue);
+
             }
         });
 
-        startButton.setOnAction(new EventHandler<ActionEvent>() {
+        this.startButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
 
                 if(!spatialisationView.isStart())
                 {
                     spatialisationView.setStart(true);
                     startButton.textProperty().set("Stop Simulation");
-                    spatialisationView.Start();
+                    spatialisationView.start();
                 }
                 else
                 {
                     spatialisationView.setStart(false);
                     startButton.textProperty().set("Start Simulation");
-                    spatialisationView.Stop();
+                    spatialisationView.stop();
                 }
-
             }
         });
 
+        this.resetButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override public void handle(ActionEvent e) {
+
+                spatialisationView.reset();
+            }
+        });
+
+        //this.sampleTextField.onActionProperty().addListener();
     }
 
-    // When user click on myButton
-    // this method will be called.
-    public void startButtonMethod(ActionEvent event)
+    public void toggleSimulationModel()
     {
-        /*System.out.println("Button Clicked!");
+    }
 
-        String test = "Test";
+    public void toggleModelType()
+    {
+        if(this.toggleSimulation.isSelected())
+        {
+            this.graphPanel.setVisible(false);
+            this.graphInputPanel.setVisible(false);
 
-        // Show in VIEW
-        testTextField.setText(test);*/
+            this.mapPanel.setVisible(true);
+            this.mapInputPanel.setVisible(true);
 
+            this.toggleSimulation.setText("Graph Visualization");
+        }
+        else
+        {
+            this.graphPanel.setVisible(true);
+            this.graphInputPanel.setVisible(true);
+
+            this.mapPanel.setVisible(false);
+            this.mapInputPanel.setVisible(false);
+
+            this.spatialisationView.stop();
+
+            this.toggleSimulation.setText("Map Visualization");
+        }
     }
 
 }

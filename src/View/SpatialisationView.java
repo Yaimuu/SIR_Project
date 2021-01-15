@@ -3,17 +3,11 @@ package View;
 import Controller.BehaviourController;
 import Model.Person;
 import javafx.animation.AnimationTimer;
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
-import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.SimpleDoubleProperty;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
-import javafx.util.Duration;
 
-import java.util.LinkedList;
 import java.util.List;
 
 public class SpatialisationView implements View
@@ -42,56 +36,90 @@ public class SpatialisationView implements View
         this.bc = new BehaviourController(people, c);
     }
 
-    public void Start()
+    public void start()
     {
         timer.start();
-        timeline.play();
     }
 
-    public void Stop()
+    public void stop()
     {
         timer.stop();
-        timeline.stop();
+    }
+
+    public void reset()
+    {
+        this.bc.resetPeople();
+        this.updateCanvas();
     }
 
     public void canvasInitialization()
     {
-        this.Draw();
+        this.draw();
 
-        AnimationTimer timer = new AnimationTimer() {
+        this.timer = new AnimationTimer() {
             @Override
             public void handle(long now) {
-                //Canvas canvas;
-                GraphicsContext gc = bc.canvas.getGraphicsContext2D();
-                gc.setFill(Color.CORNSILK);
-                gc.fillRect(0, 0, bc.canvas.getWidth(),  bc.canvas.getHeight());
-                gc.setFill(Color.FORESTGREEN);
-                Draw();
+
+                updateCanvas();
             }
         };
 
-        DoubleProperty x  = new SimpleDoubleProperty();
-        DoubleProperty y  = new SimpleDoubleProperty();
-        Timeline timeline = new Timeline(
-                new KeyFrame(Duration.seconds(0),
-                        new KeyValue(x, 0),
-                        new KeyValue(y, 0)
-                ),
-                new KeyFrame(Duration.seconds(3),
-                        new KeyValue(x, bc.canvas.getWidth() - 20),
-                        new KeyValue(y, bc.canvas.getHeight() - 20)
-                )
-        );
-        timeline.setAutoReverse(true);
-        timeline.setCycleCount(Timeline.INDEFINITE);
+        /*for(int i = 0; i < this.bc.people.stream().count(); i++)
+        {
+            DoubleProperty x  = new SimpleDoubleProperty();
+            DoubleProperty y  = new SimpleDoubleProperty();
+            Timeline timeline = new Timeline(
+                    new KeyFrame(Duration.seconds(0),
+                            new KeyValue(x, 0),
+                            new KeyValue(y, 0)
+                    ),
+                    new KeyFrame(Duration.seconds(3),
+                            new KeyValue(x, bc.canvas.getWidth() - 20),
+                            new KeyValue(y, bc.canvas.getHeight() - 20)
+                    )
+            );
+            timeline.setAutoReverse(true);
+            timeline.setCycleCount(Timeline.INDEFINITE);
+        }*/
+    }
+
+    public void updateCanvas()
+    {
+        GraphicsContext gc = this.bc.getCanvas().getGraphicsContext2D();
+        gc.setFill(Color.CORNSILK);
+        gc.fillRect(0, 0, this.bc.getCanvas().getWidth(),  this.bc.getCanvas().getHeight());
+        gc.setFill(Color.FORESTGREEN);
+
+        Person lastPerson = null;
+        for (PersonView pv : this.bc.getPeople())
+        {
+            pv.getPerson().isCollidingBounds(this.bc.getCanvas().getWidth(), this.bc.getCanvas().getHeight());
+            for(int i = 0; i < this.bc.getPeople().stream().count(); i++)
+            {
+                if(lastPerson != null)
+                {
+                    //System.out.println(lastPerson);
+                    pv.getPerson().isCollidingPerson(lastPerson);
+                }
+                lastPerson = this.bc.getPeople().get(i).getPerson();
+            }
+            lastPerson = pv.getPerson();
+        }
+
+        for (PersonView pv: this.bc.getPeople())
+        {
+            pv.getPerson().move();
+        }
+
+        this.draw();
     }
 
     @Override
-    public void Draw()
+    public void draw()
     {
-        for (PersonView pv: this.bc.people)
+        for (PersonView pv: this.bc.getPeople())
         {
-            pv.Draw();
+            pv.draw();
         }
     }
 

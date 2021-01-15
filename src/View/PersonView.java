@@ -26,12 +26,20 @@ public class PersonView implements View
     }
 
     @Override
-    public void Draw()
+    public void draw()
     {
-        this.person.Move();
+        this.person.move();
 
         this.canvas.getGraphicsContext2D().fillOval(this.person.getPosition().x - this.person.getRadius(), this.person.getPosition().y - this.person.getRadius(), this.person.getRadius(), this.person.getRadius());
     }
+
+    /*public void isCollidingPerson(PersonView pv)
+    {
+        if(Circle.intersect(this.circle, pv.getCircle()). )
+        {
+            this.person.OnCollisionEnter();
+        }
+    }*/
 
     public Person getPerson() {
         return person;
@@ -43,5 +51,13 @@ public class PersonView implements View
 
     public void setCanvas(Canvas canvas) {
         this.canvas = canvas;
+    }
+
+    public Circle getCircle() {
+        return circle;
+    }
+
+    public void setCircle(Circle circle) {
+        this.circle = circle;
     }
 }

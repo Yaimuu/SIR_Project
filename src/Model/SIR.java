@@ -4,6 +4,11 @@ import java.util.Vector;
 
 public class SIR extends SimulationModel
 {
+    protected double S;
+    protected double I;
+    protected double R;
+
+
 
     public Vector<Double> calculateStep()
     {
@@ -14,11 +19,6 @@ public class SIR extends SimulationModel
         return res;
     }
 
-    enum State
-    {
-        Safe,
-        Infected,
-        Recovered
-    }
+
 
 }
