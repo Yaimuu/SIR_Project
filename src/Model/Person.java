@@ -3,18 +3,16 @@ package Model;
 import com.sun.javafx.geom.Vec2d;
 import com.sun.webkit.Timer;
 import javafx.animation.AnimationTimer;
-import javafx.scene.shape.Circle;
 
 public class Person implements Model
 {
-    private double radius = 30;
+    private double radius = 10;
     private Vec2d position;
     private Vec2d speed;
     private double direction;
-    private boolean collision = false;
     private State state = State.Safe;
 
-    private enum State
+    public enum State
     {
         Safe,
         Exposed,
@@ -33,7 +31,7 @@ public class Person implements Model
         this.direction = ranDir;
         this.position = new Vec2d(ranPosX, ranPosY);
         //this.speed = new Vec2d((double)(ranSpeedX/100), (double)(ranSpeedY/100));
-        this.speed = new Vec2d(0.7d, 0.7d);
+        this.speed = new Vec2d(1d, 1d);
     }
 
     public Person(float x, float y)
@@ -52,30 +50,37 @@ public class Person implements Model
 
     public void isCollidingPerson(Person p)
     {
-        if(p != this)
+        if(p != this && p != null)
         {
             double dx = this.getPosition().x - p.getPosition().x;
             double dy = this.getPosition().y - p.getPosition().y;
-            //double rSum = this.getRadius() + p.getRadius();
+            double rSum = this.getRadius() + p.getRadius();
 
-            if( Math.sqrt(dx * dx + dy * dy) < this.getRadius() && !collision)
+            if( Math.sqrt(dx * dx + dy * dy) < rSum )
             {
-//                System.out.println("collision");
-                this.direction -= 90;
-                //this.OnCollisionEnter();
-                this.collision = true;
+                if(p.getState() == State.Infected)
+                {
+                    this.state = State.Infected;
+                }
+                else if(this.getState() == State.Infected)
+                {
+                    p.setState(State.Infected);
+                }
+                System.out.println(p);
+                this.direction = this.direction * Math.PI/2;
+//                this.OnCollisionEnter();
             }
         }
     }
 
     public void isCollidingBounds(double width, double heigth)
     {
-        if( this.getPosition().x >= width || this.getPosition().x - this.getRadius() <= 0 )
+        if( this.getPosition().x + this.getRadius() >= width || this.getPosition().x - this.getRadius() <= 0 )
         {
             this.direction = 180 - this.direction;
         }
 
-        if( this.getPosition().y >= heigth || this.getPosition().y - this.getRadius() <= 0 )
+        if( this.getPosition().y + this.getRadius() >= heigth || this.getPosition().y - this.getRadius() <= 0 )
         {
             this.direction = 360 - this.direction;
         }
@@ -87,15 +92,9 @@ public class Person implements Model
         this.position.y += this.speed.y * Math.sin(this.direction * Math.PI /180);
     }
 
-    /*public void ChangeState(State newState)
+    public void ChangeState(State newState)
     {
 
-    }*/
-
-    private void resetCollision()
-    {
-
-        this.collision = false;
     }
 
     public double getRadius() {
@@ -120,6 +119,14 @@ public class Person implements Model
 
     public void setSpeed(Vec2d speed) {
         this.speed = speed;
+    }
+
+    public State getState() {
+        return state;
+    }
+
+    public void setState(State state) {
+        this.state = state;
     }
 
 }

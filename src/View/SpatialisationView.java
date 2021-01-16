@@ -22,13 +22,11 @@ public class SpatialisationView implements View
     public SpatialisationView()
     {
         this.bc = new BehaviourController();
-        //this.people = new LinkedList<PersonView>();
     }
 
     public SpatialisationView(Canvas c)
     {
         this.bc = new BehaviourController(c);
-        //this.people = new LinkedList<PersonView>();
     }
 
     public SpatialisationView(List<PersonView> people, Canvas c)
@@ -49,7 +47,7 @@ public class SpatialisationView implements View
     public void reset()
     {
         this.bc.resetPeople();
-        this.updateCanvas();
+        this.draw();
     }
 
     public void canvasInitialization()
@@ -85,38 +83,33 @@ public class SpatialisationView implements View
 
     public void updateCanvas()
     {
-        GraphicsContext gc = this.bc.getCanvas().getGraphicsContext2D();
-        gc.setFill(Color.CORNSILK);
-        gc.fillRect(0, 0, this.bc.getCanvas().getWidth(),  this.bc.getCanvas().getHeight());
-        gc.setFill(Color.FORESTGREEN);
-
-        Person lastPerson = null;
-        for (PersonView pv : this.bc.getPeople())
-        {
-            pv.getPerson().isCollidingBounds(this.bc.getCanvas().getWidth(), this.bc.getCanvas().getHeight());
-            for(int i = 0; i < this.bc.getPeople().stream().count(); i++)
-            {
-                if(lastPerson != null)
-                {
-                    //System.out.println(lastPerson);
-                    pv.getPerson().isCollidingPerson(lastPerson);
-                }
-                lastPerson = this.bc.getPeople().get(i).getPerson();
-            }
-            lastPerson = pv.getPerson();
-        }
-
-        for (PersonView pv: this.bc.getPeople())
-        {
-            pv.getPerson().move();
-        }
-
         this.draw();
+
+        PersonView lastPerson = this.bc.getPeople().get(0);
+        for (int i = 0; i < this.bc.getPeople().size(); i++)
+        {
+            PersonView pv = this.bc.getPeople().get(i);
+
+            pv.getPerson().isCollidingBounds(this.bc.getCanvas().getWidth(), this.bc.getCanvas().getHeight());
+            for(int j = 0; j < this.bc.getPeople().size(); j++)
+            {
+                lastPerson = this.bc.getPeople().get(j);
+
+                if(lastPerson != null && lastPerson != pv)
+                {
+                    pv.getPerson().isCollidingPerson(lastPerson.getPerson());
+                }
+            }
+        }
     }
 
     @Override
     public void draw()
     {
+        GraphicsContext gc = this.bc.getCanvas().getGraphicsContext2D();
+        gc.setFill(Color.rgb(47,49,54));
+        gc.fillRect(0, 0, this.bc.getCanvas().getWidth(),  this.bc.getCanvas().getHeight());
+
         for (PersonView pv: this.bc.getPeople())
         {
             pv.draw();
