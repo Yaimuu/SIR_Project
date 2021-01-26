@@ -1,13 +1,17 @@
 package View;
 
+import com.sun.javafx.geom.Vec2d;
+import com.sun.javafx.geom.Vec3d;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
-public class LineChartSIR extends Application
+public class LineChartExample extends Application
 {
     private LineChart<Number, Number> chartSIR;
 
@@ -45,8 +49,6 @@ public class LineChartSIR extends Application
         stage.setScene(scene);
         stage.show();
     }
-
-
 
     public static void main(String[] args)
     {

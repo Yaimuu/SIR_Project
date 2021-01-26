@@ -1,13 +1,12 @@
 package Model;
 
-public abstract class SimulationModel implements Model
-{
+public abstract class SimulationModel {
     protected int step;
-    protected float S;
-    protected float I;
-    protected float R;
-
-
+    protected boolean spatialization;
+    protected double N; //population totale
+    protected double alpha;
+    protected double beta;
+    protected double gamma;
 
 
 }

@@ -12,24 +12,11 @@
 
 <AnchorPane prefHeight="498.0" prefWidth="1014.0" style="-fx-background-color: #36393F;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MainController">
    <children>
-<<<<<<< HEAD
-      <LineChart fx:id="chartSIR" layoutY="14.0" prefHeight="400.0" prefWidth="371.0" title="SIR evolution" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="229.0" AnchorPane.topAnchor="0.0">
-        <xAxis>
-          <CategoryAxis side="BOTTOM" />
-        </xAxis>
-        <yAxis>
-          <NumberAxis side="LEFT" />
-        </yAxis>
-      </LineChart>
-      <Slider fx:id="testSlider" layoutX="398.0" layoutY="193.0" />
-      <TextField fx:id="testTextField" layoutX="393.0" layoutY="119.0" />
-      <Button fx:id="testButton" layoutX="441.0" layoutY="157.0" mnemonicParsing="false" onAction="#testButtonMethod" text="Button" />
-=======
       <Pane id="inputsPanel" fx:id="inputsPanel" layoutX="563.0" layoutY="192.0" prefHeight="498.0" prefWidth="494.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="530.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Pane id="mapInputPanel" fx:id="mapInputPanel" prefHeight="498.0" prefWidth="484.0">
                <children>
-                  <Button fx:id="startButton" layoutX="103.0" layoutY="76.0" mnemonicParsing="false" text="Start Simulation" />
+                  <Button fx:id="startButton" layoutX="103.0" layoutY="76.0" mnemonicParsing="false" onAction="#startButtonMethod" text="Start Simulation" />
                   <Button fx:id="resetButton" layoutX="242.0" layoutY="76.0" mnemonicParsing="false" onAction="#startButtonMethod" text="Reset Simulation" />
                </children>
             </Pane>
@@ -65,6 +52,5 @@
             </LineChart>
          </children>
       </Pane>
->>>>>>> 8af5bf20731f79b9b5ac4f0b8280b73dbe487467
    </children>
 </AnchorPane>

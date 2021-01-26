@@ -22,12 +22,25 @@
     <select />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="7af4ccbd-cd92-4994-bf9a-5cd337fbe65b" name="Default Changelist" comment="JavaFX setup">
       <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+=======
+    <list default="true" id="7af4ccbd-cd92-4994-bf9a-5cd337fbe65b" name="Default Changelist" comment="Spatialisation Update">
+>>>>>>> 8af5bf20731f79b9b5ac4f0b8280b73dbe487467
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/BehaviourController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/BehaviourController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/SettingsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SettingsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Graph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/SEIR.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/SEIR.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/SEIRBorn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/SEIRBorn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/SIR.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/SIR.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/View/Main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Main.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/SpatialisationView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/SpatialisationView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +51,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
+        <option value="Interface" />
+        <option value="package-info" />
+        <option value="module-info" />
         <option value="Class" />
       </list>
     </option>
@@ -56,23 +72,49 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+<<<<<<< HEAD
     <property name="last_opened_file_path" value="$PROJECT_DIR$/javafx-sdk-15.0.1/lib" />
     <property name="project.structure.last.edited" value="Libraries" />
+=======
+    <property name="last_opened_file_path" value="$PATH_TO_FX$" />
+    <property name="project.structure.last.edited" value="SDKs" />
+>>>>>>> 8af5bf20731f79b9b5ac4f0b8280b73dbe487467
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.JavaFX" />
+    <property name="settings.editor.selected.configurable" value="project.propCompiler" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="openjdk-15" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="View.Main" />
       <module name="SIR_Project" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;D:\Developpement\Java_JDKs\javafx-sdk-15.0.1\lib&quot; --add-modules javafx.controls,javafx.fxml" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\Sugar\.jdks\javafx-sdk-15.0.1\lib&quot; --add-modules javafx.controls,javafx.fxml --add-exports javafx.graphics/com.sun.javafx.geom=ALL-UNNAMED" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TestAnimation" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="View.TestAnimation" />
+      <module name="SIR_Project" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\Sugar\.jdks\javafx-sdk-15.0.1\lib&quot; --add-modules javafx.controls,javafx.fxml --add-exports javafx.graphics/com.sun.javafx.geom=ALL-UNNAMED" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestLineChart" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="View.LineChartExample" />
+      <module name="SIR_Project" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\Sugar\.jdks\javafx-sdk-15.0.1\lib&quot; --add-modules javafx.controls,javafx.fxml --add-exports javafx.graphics/com.sun.javafx.geom=ALL-UNNAMED" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Application.TestAnimation" />
+      <item itemvalue="Application.TestLineChart" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -104,7 +146,42 @@
       <option name="project" value="LOCAL" />
       <updated>1610464536062</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="JavaFX setup">
+      <created>1610466091094</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1610466091094</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Test elements with JavaFX">
+      <created>1610471433257</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1610471433257</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Test elements with JavaFX">
+      <created>1610471945874</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1610471945874</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Some UI changes">
+      <created>1610492686382</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1610492686382</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Spatialisation Update">
+      <created>1610665405529</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1610665405529</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -123,7 +200,20 @@
     <MESSAGE value="update project" />
     <MESSAGE value="Mise en place du MVC" />
     <MESSAGE value="JavaFX setup" />
-    <option name="LAST_COMMIT_MESSAGE" value="JavaFX setup" />
+    <MESSAGE value="Test elements with JavaFX" />
+    <MESSAGE value="Some UI changes" />
+    <MESSAGE value="Spatialisation Update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Spatialisation Update" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IllegalAccessError" package="java.lang" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="WindowStateProjectService">
     <state x="2484" y="421" key="DetectedRootsChooserDialog" timestamp="1610467771833">
