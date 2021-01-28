@@ -20,8 +20,8 @@ public abstract class SimulationModel implements Model
 
     public SimulationModel()
     {
-        this.alpha = 0.25;
-        this.beta = 0.1;
+        this.alpha = 0.002;
+        this.beta = 0.5;
         this.gamma = 0.3;
         this.N = 100;
         this.tSpan = 50;
@@ -55,6 +55,14 @@ public abstract class SimulationModel implements Model
     }
 
     protected abstract Vector<Double> calculateStep();
+
+
+
+    protected abstract Person.State spreadInfection(Person p1, Person p2);
+    protected abstract Person.State updatePersonState(Person p);
+
+
+
 
     public double getAlpha() {
         return alpha;
@@ -94,5 +102,13 @@ public abstract class SimulationModel implements Model
 
     public void settSpan(double tSpan) {
         this.tSpan = tSpan;
+    }
+
+    public List<Vector<Double>> getY() {
+        return y;
+    }
+
+    public void setY(List<Vector<Double>> y) {
+        this.y = y;
     }
 }

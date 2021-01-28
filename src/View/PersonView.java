@@ -26,7 +26,7 @@ public class PersonView implements View
     {
         this.person.move();
 
-        Paint personColor = Color.BLACK;
+        Paint personColor = Color.WHITE;
 
         switch (this.person.getState())
         {
@@ -39,20 +39,15 @@ public class PersonView implements View
             case Recovered:
                 personColor = Color.GREEN;
                 break;
+            case Dead:
+                personColor = Color.BLACK;
+                break;
         }
 
         this.canvas.getGraphicsContext2D().setFill(personColor);
 
         this.canvas.getGraphicsContext2D().fillOval(this.person.getPosition().x - this.person.getRadius(), this.person.getPosition().y - this.person.getRadius(), this.person.getRadius()*2, this.person.getRadius()*2);
     }
-
-    /*public void isCollidingPerson(PersonView pv)
-    {
-        if(Circle.intersect(this.circle, pv.getCircle()). )
-        {
-            this.person.OnCollisionEnter();
-        }
-    }*/
 
     public Person getPerson() {
         return person;

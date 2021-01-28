@@ -54,7 +54,7 @@ public class MainController implements Initializable {
     @FXML
     private Canvas canvas;
 
-    private SimulationModel model;
+    public static SimulationModel model = new SIR();
     private SpatialisationView spatialisationView;
 
     @Override
@@ -75,7 +75,6 @@ public class MainController implements Initializable {
             public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue)
             {
                 System.out.println("New value: " + newValue);
-
             }
         });
 
@@ -103,11 +102,9 @@ public class MainController implements Initializable {
                 spatialisationView.reset();
             }
         });
-
-        //this.sampleTextField.onActionProperty().addListener();
     }
 
-    public void toggleSimulationModel()
+    public void updateSimulationModel()
     {
     }
 

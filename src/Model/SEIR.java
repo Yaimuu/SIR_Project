@@ -1,20 +1,20 @@
 package Model;
 
 import java.util.List;
-<<<<<<< HEAD
 
-=======
->>>>>>> 4e68a5ef84c49a62e1c11d487d126eaa4362b4bc
+import java.util.Random;
 import java.util.Vector;
 
 public class SEIR extends SIR
 {
-<<<<<<< HEAD
-
-=======
->>>>>>> 4e68a5ef84c49a62e1c11d487d126eaa4362b4bc
     protected double E;
     // TODO : SEIR
+
+    public SEIR()
+    {
+        super();
+        this.E = 0;
+    }
 
     @Override
     protected Vector<Double> calculateStep() {
@@ -30,11 +30,55 @@ public class SEIR extends SIR
         E = res.get(1);
         I = res.get(2);
         R = res.get(3);
-<<<<<<< HEAD
-=======
-
->>>>>>> 4e68a5ef84c49a62e1c11d487d126eaa4362b4bc
 
         return res;
+    }
+
+    @Override
+    protected Person.State spreadInfection(Person p1, Person p2)
+    {
+        Person.State state = p1.getState();
+        if(p2.getState() == Person.State.Infected && p1.getState() == Person.State.Safe )
+        {
+            Random r = new Random();
+            double min = 0d;
+            double max = 1d;
+            double randRatio = min + (max - min) * r.nextDouble();
+            if(super.beta >= randRatio)
+            {
+                state = Person.State.Exposed;
+                p1.setState(Person.State.Exposed);
+            }
+        }
+        return state;
+    }
+
+    @Override
+    protected Person.State updatePersonState(Person p)
+    {
+        Person.State state = p.getState();
+
+        Random r = new Random();
+        double min = 0d;
+        double max = 1d;
+        double randRatio = min + (max - min) * r.nextDouble();
+
+        if(p.getState() == Person.State.Infected)
+        {
+            if(super.alpha >= randRatio)
+            {
+                state = Person.State.Recovered;
+                p.setState(Person.State.Recovered);
+            }
+        }
+        else if(p.getState() == Person.State.Exposed)
+        {
+            if(super.gamma >= randRatio)
+            {
+                state = Person.State.Infected;
+                p.setState(Person.State.Infected);
+            }
+        }
+        return state;
     }
 }

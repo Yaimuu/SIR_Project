@@ -1,7 +1,6 @@
 package View;
 
 import Controller.BehaviourController;
-import Model.Person;
 import javafx.animation.AnimationTimer;
 import javafx.animation.Timeline;
 import javafx.scene.canvas.Canvas;
@@ -14,6 +13,8 @@ public class SpatialisationView implements View
 {
     private BehaviourController bc;
     private AnimationTimer timer;
+    private int simulationCurrentTime = 0;
+    private int simulationDuration = 2000;
     private Timeline timeline;
 
     private boolean start = false;
@@ -36,6 +37,7 @@ public class SpatialisationView implements View
 
     public void start()
     {
+        this.simulationCurrentTime = 0;
         timer.start();
     }
 
@@ -46,6 +48,7 @@ public class SpatialisationView implements View
 
     public void reset()
     {
+        this.simulationCurrentTime = 0;
         this.bc.resetPeople();
         this.draw();
     }
@@ -83,23 +86,27 @@ public class SpatialisationView implements View
 
     public void updateCanvas()
     {
-        this.draw();
-
-        PersonView lastPerson = this.bc.getPeople().get(0);
-        for (int i = 0; i < this.bc.getPeople().size(); i++)
+        if(this.simulationCurrentTime <= this.simulationDuration)
         {
-            PersonView pv = this.bc.getPeople().get(i);
+            this.draw();
 
-            pv.getPerson().isCollidingBounds(this.bc.getCanvas().getWidth(), this.bc.getCanvas().getHeight());
-            for(int j = 0; j < this.bc.getPeople().size(); j++)
+            PersonView lastPerson = this.bc.getPeople().get(0);
+            for (int i = 0; i < this.bc.getPeople().size(); i++)
             {
-                lastPerson = this.bc.getPeople().get(j);
+                PersonView pv = this.bc.getPeople().get(i);
 
-                if(lastPerson != null && lastPerson != pv)
+                pv.getPerson().isCollidingBounds(this.bc.getCanvas().getWidth(), this.bc.getCanvas().getHeight());
+                for(int j = 0; j < this.bc.getPeople().size(); j++)
                 {
-                    pv.getPerson().isCollidingPerson(lastPerson.getPerson());
+                    lastPerson = this.bc.getPeople().get(j);
+
+                    if(lastPerson != null && lastPerson != pv)
+                    {
+                        pv.getPerson().isCollidingPerson(lastPerson.getPerson());
+                    }
                 }
             }
+            this.simulationCurrentTime++;
         }
     }
 

@@ -11,7 +11,7 @@ import java.util.List;
 
 public class BehaviourController implements Controller
 {
-    private int numberPeople = 10;
+    private int numberPeople = 50;
     private int initialInfected = 1;
     private List<PersonView> people;
     private Canvas canvas;
