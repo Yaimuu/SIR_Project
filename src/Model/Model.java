@@ -1,6 +1,5 @@
 package Model;
 
-public interface Model
-{
+public interface Model {
 
 }
