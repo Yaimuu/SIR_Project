@@ -15,6 +15,7 @@ public abstract class SimulationModel implements Model
     protected double gamma;
 
     protected double intialPopInfected;
+
     protected double tSpan;
     protected List<Vector<Double>> y;
 

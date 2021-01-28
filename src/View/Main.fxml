@@ -14,7 +14,6 @@
 
 <AnchorPane prefHeight="498.0" prefWidth="1014.0" style="-fx-background-color: #36393F;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MainController">
     <children>
-
         <Pane id="inputsPanel" fx:id="inputsPanel" layoutX="563.0" layoutY="192.0" prefHeight="498.0" prefWidth="494.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="530.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
                 <Pane id="graphInputPanel" fx:id="graphInputPanel" layoutY="440.0" prefHeight="58.0" prefWidth="484.0">

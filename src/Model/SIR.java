@@ -35,7 +35,6 @@ public class SIR extends SimulationModel
         R = res.get(2);
 
         return res;
-
     }
 
     @Override
@@ -75,6 +74,4 @@ public class SIR extends SimulationModel
         }
         return state;
     }
-
-
 }
