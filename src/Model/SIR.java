@@ -1,6 +1,9 @@
+
+
 package Model;
 
 import java.util.List;
+import java.util.Random;
 import java.util.Vector;
 
 public class SIR extends SimulationModel
@@ -11,6 +14,7 @@ public class SIR extends SimulationModel
 
     public SIR()
     {
+        super();
         this.I = 1;
         this.R = 0;
         this.S = super.N - (this.I + this.R);
@@ -31,5 +35,43 @@ public class SIR extends SimulationModel
         R = res.get(2);
 
         return res;
+    }
+
+    @Override
+    protected Person.State spreadInfection(Person p1, Person p2)
+    {
+        Person.State state = p1.getState();
+        if(p2.getState() == Person.State.Infected  && p1.getState() == Person.State.Safe)
+        {
+            Random r = new Random();
+            double min = 0d;
+            double max = 1d;
+            double randRatio = min + (max - min) * r.nextDouble();
+            if(super.beta >= randRatio)
+            {
+                state = Person.State.Infected;
+                p1.setState(Person.State.Infected);
+            }
+        }
+        return state;
+    }
+
+    @Override
+    protected Person.State updatePersonState(Person p)
+    {
+        Person.State state = p.getState();
+        if(p.getState() == Person.State.Infected)
+        {
+            Random r = new Random();
+            double min = 0d;
+            double max = 1d;
+            double randRatio = min + (max - min) * r.nextDouble();
+            if(super.alpha >= randRatio)
+            {
+                state = Person.State.Recovered;
+                p.setState(Person.State.Recovered);
+            }
+        }
+        return state;
     }
 }

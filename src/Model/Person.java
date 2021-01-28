@@ -1,5 +1,6 @@
 package Model;
 
+import Controller.MainController;
 import com.sun.javafx.geom.Vec2d;
 
 import com.sun.webkit.Timer;
@@ -18,13 +19,14 @@ public class Person implements Model
         Safe,
         Exposed,
         Infected,
-        Recovered
+        Recovered,
+        Dead
     }
 
     public Person()
     {
-        double ranPosX = this.radius + Math.random() * (500 - this.radius);
-        double ranPosY = this.radius + Math.random() * (200 - this.radius);
+        double ranPosX = this.radius + Math.random() * (400 - this.radius);
+        double ranPosY = this.radius + Math.random() * (400 - this.radius);
         double ranSpeedX = 1 + Math.random() * (50 - 1);
         double ranSpeedY = 1 + Math.random() * (50 - 1);
         double ranDir = 0 + Math.random() * (360 - 0);
@@ -45,13 +47,13 @@ public class Person implements Model
 
     public void OnCollisionEnter()
     {
-        this.speed.x *= -1;
-        this.speed.y *= -1;
+//        this.speed.x *= -1;
+//        this.speed.y *= -1;
     }
 
     public void isCollidingPerson(Person p)
     {
-        if(p != this && p != null)
+        if(p != this && p != null && p.state != State.Dead)
         {
             double dx = this.getPosition().x - p.getPosition().x;
             double dy = this.getPosition().y - p.getPosition().y;
@@ -59,13 +61,14 @@ public class Person implements Model
 
             if( Math.sqrt(dx * dx + dy * dy) < rSum )
             {
-                if(p.getState() == State.Infected)
-                {
-                    this.state = State.Exposed;
-                }
-//                System.out.println(p);
-                this.direction = this.direction * Math.PI/2;
-//                this.OnCollisionEnter();
+                MainController.model.spreadInfection(this, p);
+//                this.direction = 90 + this.direction * Math.PI/2;
+//                this.direction = this.direction + Math.atan( Math.tan(this.direction) +
+//                        2 * Math.sqrt(this.speed.x/p.speed.x ) ) * (Math.sin(p.getDirection()) / Math.cos(this.direction)) ;
+
+//                this.speed.x += Math.sqrt( Math.pow(this.speed.x * Math.sin(this.direction) +
+//                        2 * p.speed.x * Math.sin(p.getDirection()) , 2) + Math.pow( this.speed.x + Math.cos(this.direction), 2) );
+//                this.speed.y = this.speed.x;
             }
         }
     }
@@ -85,8 +88,12 @@ public class Person implements Model
 
     public void move()
     {
-        this.position.x += this.speed.x *  Math.cos(this.direction * Math.PI /180);
-        this.position.y += this.speed.y * Math.sin(this.direction * Math.PI /180);
+        if(this.state != State.Dead)
+        {
+            this.position.x += this.speed.x *  Math.cos(this.direction * Math.PI /180);
+            this.position.y += this.speed.y * Math.sin(this.direction * Math.PI /180);
+            MainController.model.updatePersonState(this);
+        }
     }
 
     public void ChangeState(State newState)
@@ -126,4 +133,11 @@ public class Person implements Model
         this.state = state;
     }
 
+    public double getDirection() {
+        return direction;
+    }
+
+    public void setDirection(double direction) {
+        this.direction = direction;
+    }
 }
