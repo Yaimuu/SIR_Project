@@ -8,6 +8,7 @@ public abstract class SimulationModel implements Model
 {
     protected int step;
     protected boolean spatialization;
+
     protected double N; //population totale
     protected double alpha;
     protected double beta;
