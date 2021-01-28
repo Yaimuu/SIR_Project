@@ -87,6 +87,4 @@ public class SIR extends SimulationModel
         }
         return state;
     }
-
-
 }
