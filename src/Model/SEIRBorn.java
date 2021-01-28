@@ -1,5 +1,6 @@
 package Model;
 
+import java.util.List;
 import java.util.Vector;
 
 public class SEIRBorn extends SEIR
@@ -12,7 +13,6 @@ public class SEIRBorn extends SEIR
     protected double R;
 
     // TODO : SEIR avec gestion des naissances
-
 
     @Override
     public Vector<Double> calculateStep()
@@ -31,6 +31,5 @@ public class SEIRBorn extends SEIR
         //R = res.get(3);
 
         return res;
-
     }
 }

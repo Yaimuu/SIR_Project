@@ -9,31 +9,39 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Spinner.*?>
+<?import javafx.scene.control.SpinnerValueFactory.*?>
 
 <AnchorPane prefHeight="498.0" prefWidth="1014.0" style="-fx-background-color: #36393F;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MainController">
    <children>
       <Pane id="inputsPanel" fx:id="inputsPanel" layoutX="563.0" layoutY="192.0" prefHeight="498.0" prefWidth="494.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="530.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Pane id="mapInputPanel" fx:id="mapInputPanel" prefHeight="498.0" prefWidth="484.0">
+            <Pane id="graphInputPanel" fx:id="graphInputPanel" prefHeight="498.0" prefWidth="484.0">
+               <children>
+                  <ToggleButton layoutX="315.0" layoutY="459.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Quarantaine" />
+                  <ToggleButton layoutX="192.0" layoutY="459.0" mnemonicParsing="false" text="Port du masque" />
+                  <ToggleButton layoutX="69.0" layoutY="459.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Confinement" />
+               </children>
+            </Pane>
+            <Pane id="mapInputPanel" fx:id="mapInputPanel" prefHeight="146.0" prefWidth="484.0">
                <children>
                   <Button fx:id="startButton" layoutX="103.0" layoutY="76.0" mnemonicParsing="false" text="Start Simulation" />
                   <Button fx:id="resetButton" layoutX="242.0" layoutY="76.0" mnemonicParsing="false" text="Reset Simulation" />
                   <TextField fx:id="sampleTextField" />
                </children>
             </Pane>
-            <Pane id="graphInputPanel" fx:id="graphInputPanel" prefHeight="498.0" prefWidth="484.0">
+            <Pane id="generalInputs" layoutY="121.0" prefHeight="308.0" prefWidth="484.0">
                <children>
-                  <ToggleButton layoutX="315.0" layoutY="459.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Quarantaine" />
-                  <ToggleButton layoutX="192.0" layoutY="459.0" mnemonicParsing="false" text="Port du masque" />
-                  <ToggleButton layoutX="69.0" layoutY="459.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Confinement" />
-                  <ComboBox fx:id="modelComboBox" layoutX="215.0" layoutY="349.0" prefWidth="150.0" promptText="Choix du modèle" />
-                  <Slider fx:id="alphaSlider" layoutX="42.0" layoutY="374.0" />
-                  <Slider fx:id="initialInfectedSlider" layoutX="42.0" layoutY="335.0" />
-                  <Slider fx:id="betaSlider" layoutX="42.0" layoutY="355.0" />
-                  <Pane layoutX="-1.0" layoutY="298.0" prefHeight="135.0" prefWidth="484.0" />
+                  <ToggleButton id="toggleSimulation" fx:id="toggleSimulation" layoutX="360.0" layoutY="14.0" mnemonicParsing="false" onAction="#toggleModelType" text="Map Visualization" />
+
+                                    <Slider layoutX="172.0" layoutY="146.0" />
+                  <Slider fx:id="betaSlider" layoutX="172.0" layoutY="213.0" />
+                  <Slider fx:id="initialInfectedSlider" layoutX="172.0" layoutY="178.0" />
+                  <Slider fx:id="alphaSlider" layoutX="172.0" layoutY="248.0" />
+                  <ComboBox fx:id="modelComboBox" layoutX="167.0" layoutY="82.0" prefWidth="150.0" promptText="Choix du modèle" />
+                  <Pane layoutX="-7.0" layoutY="349.0" prefHeight="35.0" prefWidth="491.0" visible="false" />
                </children>
             </Pane>
-            <ToggleButton id="toggleSimulation" fx:id="toggleSimulation" layoutX="360.0" layoutY="14.0" mnemonicParsing="false" onAction="#toggleModelType" text="Map Visualization" />
          </children>
       </Pane>
       <Pane id="mapPanel" fx:id="mapPanel" layoutX="127.0" layoutY="235.0" prefHeight="258.0" prefWidth="530.0" style="-fx-background-color: #36393F;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">

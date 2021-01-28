@@ -9,10 +9,10 @@ public class SIR extends SimulationModel
     protected double I;
     protected double R;
 
-
-
-    public Vector<Double> calculateStep()
+    @Override
+    public List<List<Double>> calculateStep(List<List<Double>> yModel, int i, int j)
     {
+
         Vector<Double> res = new Vector<Double>();
 
         // TODO : love sur tes fesses Yanis, dis moi si c'est pas ce que tu voulais
@@ -25,15 +25,6 @@ public class SIR extends SimulationModel
         //S = res.get(0);
         //I = res.get(1);
         //R = res.get(2);
-
-
-
-        return res;
-    }
-
-
-    @Override
-    public List<List<Double>> calculateStep(List<List<Double>> yModel, int i, int j) {
         return null;
     }
 }

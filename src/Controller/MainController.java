@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.SIR;
 import Model.SimulationModel;
 import View.SpatialisationView;
 import javafx.beans.value.ChangeListener;
