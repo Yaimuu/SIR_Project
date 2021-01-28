@@ -14,6 +14,7 @@
 
 <AnchorPane prefHeight="498.0" prefWidth="1014.0" style="-fx-background-color: #36393F;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MainController">
     <children>
+
         <Pane id="inputsPanel" fx:id="inputsPanel" layoutX="563.0" layoutY="192.0" prefHeight="498.0" prefWidth="494.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="530.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
                 <Pane id="graphInputPanel" fx:id="graphInputPanel" layoutY="440.0" prefHeight="58.0" prefWidth="484.0">
@@ -32,7 +33,7 @@
                 <Pane id="generalInputs" layoutY="121.0" prefHeight="308.0" prefWidth="484.0">
                     <children>
                         <ToggleButton id="toggleSimulation" fx:id="toggleSimulation" layoutX="360.0" layoutY="14.0" mnemonicParsing="false" onAction="#toggleModelType" text="Map Visualization" />
-                        <ComboBox fx:id="modelComboBox" layoutX="92.0" layoutY="14.0" prefWidth="150.0" promptText="Choix du modèle" />
+                        <ComboBox fx:id="modelComboBox" layoutX="92.0" layoutY="14.0" onAction="#updateSimulationModel" prefHeight="25.0" prefWidth="230.0" promptText="Choix du modèle" visibleRowCount="4" />
                         <Label id="alphaLabel" fx:id="alphaLabel" layoutX="97.0" layoutY="61.0" text="I0" textFill="WHITE" />
 
                         <Slider id="alphaSlider" fx:id="alphaSlider" layoutX="97.0" layoutY="78.0" />
@@ -59,15 +60,16 @@
         </Pane>
         <Pane id="graphPanel" fx:id="graphPanel" prefHeight="498.0" prefWidth="530.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="484.0" AnchorPane.topAnchor="0.0">
             <children>
-                <LineChart fx:id="chartSIR" prefHeight="498.0" prefWidth="530.0" style="-fx-background-color: white;" title="SIR evolution">
+                <LineChart fx:id="chartSIR" animated="false" disable="true" prefHeight="498.0" prefWidth="530.0" style="-fx-background-color: white;" title="SIR evolution">
                     <xAxis>
-                        <CategoryAxis side="BOTTOM" />
+                        <CategoryAxis label="Nombre de jours" side="BOTTOM" />
                     </xAxis>
                     <yAxis>
-                        <NumberAxis side="LEFT" />
+                        <NumberAxis label="Population" side="LEFT" />
                     </yAxis>
                 </LineChart>
             </children>
         </Pane>
     </children>
 </AnchorPane>
+

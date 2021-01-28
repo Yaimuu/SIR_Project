@@ -1,5 +1,6 @@
 package Model;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import java.util.Random;
@@ -14,6 +15,21 @@ public class SEIR extends SIR
     {
         super();
         this.E = 0;
+        this.modelLabels = new LinkedList<>();
+        if(this.modelLabels.size() < 4)
+        {
+            this.modelLabels.add("Sains");
+            this.modelLabels.add("Exposé");
+            this.modelLabels.add("Infectés");
+            this.modelLabels.add("Guéris");
+        }
+        else
+        {
+            this.modelLabels.set(0, "Sains");
+            this.modelLabels.set(1, "Exposé");
+            this.modelLabels.set(2, "Infectés");
+            this.modelLabels.set(3, "Guéris");
+        }
     }
 
     @Override
@@ -25,7 +41,6 @@ public class SEIR extends SIR
         res.add(super.alpha*E-super.gamma*I);
         res.add(super.gamma*I);
 
-        //je sais pas si tu veux qu'on change les SIR directement
         S = res.get(0);
         E = res.get(1);
         I = res.get(2);

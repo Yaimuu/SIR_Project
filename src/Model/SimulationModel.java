@@ -13,11 +13,11 @@ public abstract class SimulationModel implements Model
     protected double alpha;
     protected double beta;
     protected double gamma;
-
     protected double intialPopInfected;
 
     protected double tSpan;
     protected List<Vector<Double>> y;
+    protected List<String> modelLabels;
 
     public SimulationModel()
     {
@@ -27,6 +27,7 @@ public abstract class SimulationModel implements Model
         this.N = 100;
         this.tSpan = 50;
         this.y = new LinkedList<>();
+        this.modelLabels = new LinkedList<>();
     }
 
     public List<Vector<Double>> calculateModel()
@@ -111,5 +112,13 @@ public abstract class SimulationModel implements Model
 
     public void setY(List<Vector<Double>> y) {
         this.y = y;
+    }
+
+    public List<String> getModelLabels() {
+        return modelLabels;
+    }
+
+    public void setModelLabels(List<String> modelLabels) {
+        this.modelLabels = modelLabels;
     }
 }
