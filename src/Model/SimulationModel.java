@@ -95,4 +95,12 @@ public abstract class SimulationModel implements Model
     public void settSpan(double tSpan) {
         this.tSpan = tSpan;
     }
+
+    public List<Vector<Double>> getY() {
+        return y;
+    }
+
+    public void setY(List<Vector<Double>> y) {
+        this.y = y;
+    }
 }
