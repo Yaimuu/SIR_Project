@@ -16,30 +16,38 @@
    <children>
       <Pane id="inputsPanel" fx:id="inputsPanel" layoutX="563.0" layoutY="192.0" prefHeight="498.0" prefWidth="494.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="530.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Pane id="graphInputPanel" fx:id="graphInputPanel" prefHeight="498.0" prefWidth="484.0">
+            <Pane id="graphInputPanel" fx:id="graphInputPanel" layoutY="440.0" prefHeight="58.0" prefWidth="484.0">
                <children>
-                  <ToggleButton layoutX="315.0" layoutY="459.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Quarantaine" />
-                  <ToggleButton layoutX="192.0" layoutY="459.0" mnemonicParsing="false" text="Port du masque" />
-                  <ToggleButton layoutX="69.0" layoutY="459.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Confinement" />
+                  <ToggleButton layoutX="315.0" layoutY="17.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Quarantaine" />
+                  <ToggleButton layoutX="192.0" layoutY="17.0" mnemonicParsing="false" text="Port du masque" />
+                  <ToggleButton layoutX="69.0" layoutY="17.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Confinement" />
                </children>
             </Pane>
             <Pane id="mapInputPanel" fx:id="mapInputPanel" prefHeight="146.0" prefWidth="484.0">
                <children>
                   <Button fx:id="startButton" layoutX="103.0" layoutY="76.0" mnemonicParsing="false" text="Start Simulation" />
                   <Button fx:id="resetButton" layoutX="242.0" layoutY="76.0" mnemonicParsing="false" text="Reset Simulation" />
-                  <TextField fx:id="sampleTextField" />
                </children>
             </Pane>
             <Pane id="generalInputs" layoutY="121.0" prefHeight="308.0" prefWidth="484.0">
                <children>
                   <ToggleButton id="toggleSimulation" fx:id="toggleSimulation" layoutX="360.0" layoutY="14.0" mnemonicParsing="false" onAction="#toggleModelType" text="Map Visualization" />
+                  <ComboBox fx:id="modelComboBox" layoutX="92.0" layoutY="14.0" prefWidth="150.0" promptText="Choix du modèle" />
+                  <Label id="alphaLabel" fx:id="alphaLabel" layoutX="97.0" layoutY="61.0" text="I0" textFill="WHITE" />
 
-                                    <Slider layoutX="172.0" layoutY="146.0" />
-                  <Slider fx:id="betaSlider" layoutX="172.0" layoutY="213.0" />
-                  <Slider fx:id="initialInfectedSlider" layoutX="172.0" layoutY="178.0" />
-                  <Slider fx:id="alphaSlider" layoutX="172.0" layoutY="248.0" />
-                  <ComboBox fx:id="modelComboBox" layoutX="167.0" layoutY="82.0" prefWidth="150.0" promptText="Choix du modèle" />
-                  <Pane layoutX="-7.0" layoutY="349.0" prefHeight="35.0" prefWidth="491.0" visible="false" />
+                                    <Slider id="alphaSlider" fx:id="alphaSlider" layoutX="97.0" layoutY="78.0" />
+                  <Label id="betaLabel" fx:id="betaLabel" layoutX="97.0" layoutY="93.0" text="α (incubation)" textFill="WHITE" />
+                  <Slider fx:id="initialInfectedSlider" layoutX="97.0" layoutY="110.0" />
+                  <Label layoutX="95.0" layoutY="128.0" text="β (taux de transmission)" textFill="WHITE" />
+                  <Slider fx:id="betaSlider" layoutX="97.0" layoutY="145.0" />
+                  <Label layoutX="95.0" layoutY="155.0" text="γ (guérison)" textFill="WHITE" />
+                  <Slider fx:id="betaSlider1" layoutX="97.0" layoutY="172.0" />
+                  <Label layoutX="95.0" layoutY="190.0" text="E0" textFill="WHITE" />
+                  <Slider fx:id="alphaSlider" layoutX="95.0" layoutY="207.0" />
+                  <Label layoutX="95.0" layoutY="223.0" text="μ (mortalité)" textFill="WHITE" />
+                  <Slider fx:id="alphaSlider1" layoutX="95.0" layoutY="240.0" />
+                  <Label layoutX="95.0" layoutY="255.0" text="ν (natalité)" textFill="WHITE" />
+                  <Slider fx:id="alphaSlider11" layoutX="95.0" layoutY="272.0" />
                </children>
             </Pane>
          </children>

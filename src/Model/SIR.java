@@ -9,9 +9,30 @@ public class SIR extends SimulationModel
     protected double I;
     protected double R;
 
-    @Override
-    public List<List<Double>> calculateStep(List<List<Double>> yModel, int i, int j)
+    public SIR()
     {
+        this.I = 1;
+        this.R = 0;
+        this.S = super.N - (this.I + this.R);
+    }
+
+    @Override
+    protected Vector<Double> calculateStep()
+    {
+<<<<<<< HEAD
+        // TODO : Calculer la prochaine étape
+        Vector<Double> res = new Vector<Double>();
+        res.add(S + (-super.beta * S * I));
+        res.add(I + (super.beta*S*I-super.gamma*I));
+        res.add(R + (super.gamma*I));
+
+        //je sais pas si tu veux qu'on change les SIR directement
+        S = res.get(0);
+        I = res.get(1);
+        R = res.get(2);
+
+        return res;
+=======
 
         Vector<Double> res = new Vector<Double>();
 
@@ -26,5 +47,6 @@ public class SIR extends SimulationModel
         //I = res.get(1);
         //R = res.get(2);
         return null;
+>>>>>>> 5198610d9cd7a523677728fc5f5370ed7ffca15b
     }
 }
