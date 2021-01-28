@@ -1,5 +1,6 @@
 package Model;
 
+
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Vector;
@@ -8,12 +9,20 @@ public abstract class SimulationModel implements Model
 {
     protected int step;
     protected boolean spatialization;
+<<<<<<< HEAD
     protected double intialPopInfected;
 
     protected double alpha;
     protected double beta;
     protected double gamma;
     protected double N;
+=======
+    protected double N; //population totale
+    protected double alpha;
+    protected double beta;
+    protected double gamma;
+    protected double intialPopInfected;
+>>>>>>> 5198610d9cd7a523677728fc5f5370ed7ffca15b
     protected double tSpan;
     protected List<Vector<Double>> y;
 

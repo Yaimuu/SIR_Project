@@ -1,6 +1,7 @@
 package Model;
 
 import com.sun.javafx.geom.Vec2d;
+
 import com.sun.webkit.Timer;
 import javafx.animation.AnimationTimer;
 
@@ -112,7 +113,7 @@ public class Person implements Model
     public Vec2d getSpeed() {
         return speed;
     }
-
+    
     public void setSpeed(Vec2d speed) {
         this.speed = speed;
     }

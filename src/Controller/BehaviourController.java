@@ -1,11 +1,12 @@
 package Controller;
 
-import Model.Model;
 import Model.Person;
 import View.PersonView;
 import javafx.scene.canvas.Canvas;
+
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
+
 
 import java.util.LinkedList;
 import java.util.List;
