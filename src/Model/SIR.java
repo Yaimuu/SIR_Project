@@ -16,6 +16,10 @@ public class SIR extends SimulationModel
         this.S = super.N - (this.I + this.R);
     }
 
+    /**
+     * Calcul la prochaine étape de S,I et R
+     * @return un vecteur contenant les S,I et R actuels
+     */
     @Override
     protected Vector<Double> calculateStep()
     {

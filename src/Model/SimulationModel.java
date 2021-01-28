@@ -28,6 +28,10 @@ public abstract class SimulationModel implements Model
         this.y = new LinkedList<>();
     }
 
+    /**
+     *
+     * @return Une liste de l'évolution des vecteurs de S,I,R
+     */
     public List<Vector<Double>> calculateModel()
     {
         List<Vector<Double>> yModel = new LinkedList<>();

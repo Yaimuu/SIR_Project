@@ -21,7 +21,12 @@ public class ChartView
 
     SimulationModel model = new SIR();
 
-
+    /**
+     * permet d'afficher le LineChart voulu
+     *
+     * @param chartSIR LineChart créé et géré dans MainController
+     *
+     */
     public void draw(LineChart chartSIR)
     {
         model.calculateModel();

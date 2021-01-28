@@ -10,6 +10,10 @@ public class SEIRBorn extends SEIR
 
     // TODO : SEIR avec gestion des naissances
 
+    /**
+     * Calcul la prochaine étape de S,I et R
+     * @return un vecteur contenant les S,I et R actuels
+     */
     @Override
     protected Vector<Double> calculateStep() {
         Vector<Double> res = new Vector<Double>();
