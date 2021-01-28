@@ -60,13 +60,9 @@ public class Person implements Model
             {
                 if(p.getState() == State.Infected)
                 {
-                    this.state = State.Infected;
+                    this.state = State.Exposed;
                 }
-                else if(this.getState() == State.Infected)
-                {
-                    p.setState(State.Infected);
-                }
-                System.out.println(p);
+//                System.out.println(p);
                 this.direction = this.direction * Math.PI/2;
 //                this.OnCollisionEnter();
             }

@@ -29,4 +29,5 @@ public abstract class SimulationModel implements Model
     }
 
     public abstract List<List<Double>> calculateStep(List<List<Double>> yModel, int i, int j);
+
 }
