@@ -3,8 +3,30 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="7af4ccbd-cd92-4994-bf9a-5cd337fbe65b" name="Default Changelist" comment="UI Update">
+
+    <list default="true" id="7af4ccbd-cd92-4994-bf9a-5cd337fbe65b" name="Default Changelist" comment="JavaFX setup">
+      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SIR_Project/Model/SIR.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SIR_Project/Model/SIR.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/BehaviourController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/BehaviourController.java" afterDir="false" />
@@ -43,8 +65,14 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+
+
     <property name="last_opened_file_path" value="$PATH_TO_FX$" />
     <property name="project.structure.last.edited" value="SDKs" />
+
+    <property name="last_opened_file_path" value="$PATH_TO_FX$" />
+    <property name="project.structure.last.edited" value="SDKs" />
+
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="project.propCompiler" />
@@ -56,10 +84,20 @@
       <option name="MAIN_CLASS_NAME" value="View.Main" />
       <module name="SIR_Project" />
       <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\Sugar\.jdks\javafx-sdk-15.0.1\lib&quot; --add-modules javafx.controls,javafx.fxml --add-exports javafx.graphics/com.sun.javafx.geom=ALL-UNNAMED" />
+
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TestAnimation" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="View.TestAnimation" />
+      <module name="SIR_Project" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\Sugar\.jdks\javafx-sdk-15.0.1\lib&quot; --add-modules javafx.controls,javafx.fxml --add-exports javafx.graphics/com.sun.javafx.geom=ALL-UNNAMED" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+
     <configuration name="TestAnimation" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="View.TestAnimation" />
       <module name="SIR_Project" />
@@ -188,6 +226,21 @@
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2484" y="421" key="DetectedRootsChooserDialog" timestamp="1610467771833">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2484" y="421" key="DetectedRootsChooserDialog/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1610467771833" />
+    <state x="2586" y="261" key="FileChooserDialogImpl" timestamp="1610467769965">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2586" y="261" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1610467769965" />
+    <state x="2167" y="125" key="SettingsEditor" timestamp="1610468389092">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2167" y="125" key="SettingsEditor/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1610468389092" />
+
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
