@@ -1,6 +1,8 @@
 package Model;
 
+import java.util.List;
 import java.util.Vector;
+
 
 public class SEIRBorn extends SEIR
 {
@@ -12,6 +14,7 @@ public class SEIRBorn extends SEIR
     protected double R;
 
     // TODO : SEIR avec gestion des naissances
+
 
     public Vector<Double> calculateStep()
     {

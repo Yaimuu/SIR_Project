@@ -3,26 +3,22 @@ package View;
 import Model.Person;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
+import javafx.scene.paint.Paint;
 
 public class PersonView implements View
 {
     private Person person;
-    private Circle circle;
     private Canvas canvas;
 
     public PersonView(Person person)
     {
         this.person = person;
-        this.circle = new Circle(this.person.getPosition().x, this.person.getPosition().y, this.person.getRadius());
     }
 
     public PersonView(Person person, Canvas canvas)
     {
         this.person = person;
         this.canvas = canvas;
-
-        this.circle = new Circle(this.person.getPosition().x, this.person.getPosition().y, this.person.getRadius(), Color.WHITE);
     }
 
     @Override
@@ -30,7 +26,24 @@ public class PersonView implements View
     {
         this.person.move();
 
-        this.canvas.getGraphicsContext2D().fillOval(this.person.getPosition().x - this.person.getRadius(), this.person.getPosition().y - this.person.getRadius(), this.person.getRadius(), this.person.getRadius());
+        Paint personColor = Color.BLACK;
+
+        switch (this.person.getState())
+        {
+            case Exposed:
+                personColor = Color.BLUE;
+                break;
+            case Infected:
+                personColor = Color.RED;
+                break;
+            case Recovered:
+                personColor = Color.GREEN;
+                break;
+        }
+
+        this.canvas.getGraphicsContext2D().setFill(personColor);
+
+        this.canvas.getGraphicsContext2D().fillOval(this.person.getPosition().x - this.person.getRadius(), this.person.getPosition().y - this.person.getRadius(), this.person.getRadius()*2, this.person.getRadius()*2);
     }
 
     /*public void isCollidingPerson(PersonView pv)
@@ -51,13 +64,5 @@ public class PersonView implements View
 
     public void setCanvas(Canvas canvas) {
         this.canvas = canvas;
-    }
-
-    public Circle getCircle() {
-        return circle;
-    }
-
-    public void setCircle(Circle circle) {
-        this.circle = circle;
     }
 }

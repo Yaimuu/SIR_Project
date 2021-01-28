@@ -14,7 +14,8 @@ import java.util.List;
 public class BehaviourController implements Controller
 {
     private int numberPeople = 10;
-    private List<PersonView> people = new LinkedList<PersonView>();
+    private int initialInfected = 1;
+    private List<PersonView> people;
     private Canvas canvas;
 
     public BehaviourController()
@@ -52,15 +53,19 @@ public class BehaviourController implements Controller
 
     private List<PersonView> GeneratePeople(int nbPeople)
     {
-        List<PersonView> pv = new LinkedList<PersonView>();
-        List<Person> p = new LinkedList<Person>();
+        List<PersonView> pvs = new LinkedList<PersonView>();
 
         for (int i = 0; i < nbPeople; i++)
         {
             Person person = new Person();
-            pv.add(new PersonView(person, this.canvas));
+            if(i < this.initialInfected)
+            {
+                person.setState(Person.State.Infected);
+            }
+            PersonView pv = new PersonView(person, this.canvas);
+            pvs.add(pv);
         }
-        return pv;
+        return pvs;
     }
 
     public int getNumberPeople() {
