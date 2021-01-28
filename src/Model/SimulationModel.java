@@ -26,6 +26,7 @@ public abstract class SimulationModel implements Model
         this.N = 100;
         this.tSpan = 50;
         this.y = new LinkedList<>();
+        this.modelLabels = new LinkedList<>();
     }
 
     public List<Vector<Double>> calculateModel()

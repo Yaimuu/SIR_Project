@@ -19,8 +19,7 @@ public class SIR extends SimulationModel
         this.I = 1;
         this.R = 0;
         this.S = super.N - (this.I + this.R);
-
-        this.modelLabels = new LinkedList<String>();
+        this.modelLabels = new LinkedList<>();
         if(this.modelLabels.size() < 3)
         {
             this.modelLabels.add("Sains");
@@ -44,7 +43,6 @@ public class SIR extends SimulationModel
         res.add(I + (super.beta*S*I-super.gamma*I));
         res.add(R + (super.gamma*I));
 
-        //je sais pas si tu veux qu'on change les SIR directement
         S = res.get(0);
         I = res.get(1);
         R = res.get(2);

@@ -15,9 +15,6 @@ import java.util.Vector;
 
 public class ChartView
 {
-    private LineChart<Number,Number> modelChart;
-    private String title;
-
     public ChartView()
     {}
 
@@ -27,18 +24,27 @@ public class ChartView
         List<Vector<Double>> res = MainController.model.getY();
         int jours = res.size();
 
-        for(int i = 0; i < MainController.model.getModelLabels().size(); i++)
+        try
         {
-            XYChart.Series series = new XYChart.Series();
-            series.setName(MainController.model.getModelLabels().get(i));
-
-            for(int j =0; j < jours; j++)
+            chartSIR.getData().clear();
+            for(int i = 0; i < MainController.model.getModelLabels().size(); i++)
             {
-//            series.getData().add(new XYChart.Data(j+"", res.get(i).get(j)) );
-                series.getData().add(new XYChart.Data(j+"", j*i ) );
+                XYChart.Series series = new XYChart.Series();
+                series.setName(MainController.model.getModelLabels().get(i));
+
+                for(int j =0; j < jours; j++)
+                {
+//                    series.getData().add(new XYChart.Data(j+"", res.get(i).get(j)) );
+                    series.getData().add(new XYChart.Data(j+"", j*i ) );
+                }
+                chartSIR.getData().add(series);
             }
-            chartSIR.getData().add(series);
         }
+        catch (Exception e)
+        {
+            System.out.println("Values are not computable");
+        }
+
     }
 
 

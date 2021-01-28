@@ -28,7 +28,6 @@ public class SEIRBorn extends SEIR
         res.add(super.alpha*E-super.gamma*I -mu*I);
         res.add(super.gamma*I -mu*R);
 
-        //je sais pas si tu veux qu'on change les SIR directement
         S = res.get(0);
         E = res.get(1);
         I = res.get(2);

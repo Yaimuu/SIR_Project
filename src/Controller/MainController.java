@@ -1,11 +1,15 @@
 package Controller;
 
+import Model.SEIR;
+import Model.SEIRBorn;
 import Model.SIR;
 import Model.SimulationModel;
 import View.ChartView;
 import View.SpatialisationView;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -18,6 +22,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 
 import java.net.URL;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 
@@ -61,6 +67,9 @@ public class MainController implements Initializable {
 
     public static SimulationModel model = new SIR();
     private SpatialisationView spatialisationView;
+    private ChartView chartView;
+
+    protected List<String> modelStrings = new LinkedList<>();
 
     @Override
     public void initialize(URL location, ResourceBundle resources)
@@ -73,9 +82,14 @@ public class MainController implements Initializable {
         this.mapPanel.setVisible(false);
         this.mapInputPanel.setVisible(false);
 
-        System.out.println(chartSIR);
-        ChartView view = new ChartView();
-        view.draw(chartSIR);
+        this.chartView = new ChartView();
+        this.chartView.draw(this.chartSIR);
+
+        this.modelStrings.add("Modèle SIR");
+        this.modelStrings.add("Modèle SEIR");
+        this.modelStrings.add("Modèle SEIR avec naissance");
+        ObservableList<String> data = FXCollections.observableArrayList(this.modelStrings.get(0), this.modelStrings.get(1), this.modelStrings.get(2));
+        this.modelComboBox.setItems(data);
 
         // Adding Listener to value property.
         this.alphaSlider.valueProperty().addListener(new ChangeListener<Number>() {
@@ -115,6 +129,20 @@ public class MainController implements Initializable {
 
     public void updateSimulationModel()
     {
+        int modelChoosed = this.modelComboBox.getSelectionModel().getSelectedIndex();
+        switch (modelChoosed)
+        {
+            case 0:
+                MainController.model = new SIR();
+                break;
+            case 1:
+                MainController.model = new SEIR();
+                break;
+            case 2:
+                MainController.model = new SEIRBorn();
+                break;
+        }
+        this.chartView.draw(this.chartSIR);
     }
 
     public void toggleModelType()
