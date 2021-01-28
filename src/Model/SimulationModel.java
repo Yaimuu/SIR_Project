@@ -1,6 +1,5 @@
 package Model;
 
-
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Vector;
@@ -14,6 +13,7 @@ public abstract class SimulationModel implements Model
     protected double alpha;
     protected double beta;
     protected double gamma;
+
     protected double intialPopInfected;
     protected double tSpan;
     protected List<Vector<Double>> y;

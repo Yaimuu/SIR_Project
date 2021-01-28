@@ -1,12 +1,18 @@
 package Model;
 
 import java.util.List;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4e68a5ef84c49a62e1c11d487d126eaa4362b4bc
 import java.util.Vector;
 
 public class SEIR extends SIR
 {
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4e68a5ef84c49a62e1c11d487d126eaa4362b4bc
     protected double E;
     // TODO : SEIR
 
@@ -24,8 +30,11 @@ public class SEIR extends SIR
         E = res.get(1);
         I = res.get(2);
         R = res.get(3);
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4e68a5ef84c49a62e1c11d487d126eaa4362b4bc
 
         return res;
     }
-
 }
