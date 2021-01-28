@@ -2,7 +2,12 @@ package Model;
 
 import com.sun.javafx.geom.Vec2d;
 
-public class Person {
+import com.sun.webkit.Timer;
+import javafx.animation.AnimationTimer;
+import javafx.scene.shape.Circle;
+
+public class Person implements Model
+{
     private double radius = 30;
     private Vec2d position;
     private Vec2d speed;
@@ -114,7 +119,7 @@ public class Person {
     public Vec2d getSpeed() {
         return speed;
     }
-
+    
     public void setSpeed(Vec2d speed) {
         this.speed = speed;
     }

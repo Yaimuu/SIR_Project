@@ -28,4 +28,5 @@ public class SEIR extends SIR
 
         return res;
     }
+
 }
