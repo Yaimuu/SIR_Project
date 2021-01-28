@@ -60,12 +60,12 @@
         </Pane>
         <Pane id="graphPanel" fx:id="graphPanel" prefHeight="498.0" prefWidth="530.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="484.0" AnchorPane.topAnchor="0.0">
             <children>
-                <LineChart fx:id="chartSIR" prefHeight="498.0" prefWidth="530.0" style="-fx-background-color: white;" title="SIR evolution">
+                <LineChart fx:id="chartSIR" disable="true" prefHeight="498.0" prefWidth="530.0" style="-fx-background-color: white;" title="SIR evolution">
                     <xAxis>
-                        <CategoryAxis side="BOTTOM" />
+                        <CategoryAxis label="Nombre de jours" side="BOTTOM" />
                     </xAxis>
                     <yAxis>
-                        <NumberAxis side="LEFT" />
+                        <NumberAxis label="Population" side="LEFT" />
                     </yAxis>
                 </LineChart>
             </children>

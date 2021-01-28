@@ -2,6 +2,7 @@ package Controller;
 
 import Model.SIR;
 import Model.SimulationModel;
+import View.ChartView;
 import View.SpatialisationView;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -10,14 +11,15 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.chart.LineChart;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 
-import java.awt.*;
 import java.net.URL;
 import java.util.ResourceBundle;
+
 
 public class MainController implements Initializable {
 
@@ -54,6 +56,9 @@ public class MainController implements Initializable {
     @FXML
     private Canvas canvas;
 
+    @FXML
+    public LineChart<Number, Number> chartSIR;
+
     public static SimulationModel model = new SIR();
     private SpatialisationView spatialisationView;
 
@@ -67,6 +72,10 @@ public class MainController implements Initializable {
 
         this.mapPanel.setVisible(false);
         this.mapInputPanel.setVisible(false);
+
+        System.out.println(chartSIR);
+        ChartView view = new ChartView();
+        view.draw(chartSIR);
 
         // Adding Listener to value property.
         this.alphaSlider.valueProperty().addListener(new ChangeListener<Number>() {

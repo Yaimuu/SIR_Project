@@ -8,15 +8,15 @@ public abstract class SimulationModel implements Model
 {
     protected int step;
     protected boolean spatialization;
-
     protected double N; //population totale
     protected double alpha;
     protected double beta;
     protected double gamma;
-
     protected double intialPopInfected;
+
     protected double tSpan;
     protected List<Vector<Double>> y;
+    protected List<String> modelLabels;
 
     public SimulationModel()
     {
@@ -110,5 +110,13 @@ public abstract class SimulationModel implements Model
 
     public void setY(List<Vector<Double>> y) {
         this.y = y;
+    }
+
+    public List<String> getModelLabels() {
+        return modelLabels;
+    }
+
+    public void setModelLabels(List<String> modelLabels) {
+        this.modelLabels = modelLabels;
     }
 }

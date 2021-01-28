@@ -8,6 +8,7 @@ import javafx.animation.AnimationTimer;
 
 public class Person implements Model
 {
+
     private double radius = 10;
     private Vec2d position;
     private Vec2d speed;
