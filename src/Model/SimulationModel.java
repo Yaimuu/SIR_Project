@@ -64,11 +64,8 @@ public abstract class SimulationModel implements Model
 
     protected abstract Vector<Double> calculateStep();
 
-
-
     protected abstract Person.State spreadInfection(Person p1, Person p2);
     protected abstract Person.State updatePersonState(Person p);
-
 
 
 
