@@ -1,3 +1,9 @@
+/**
+ *
+ * @project SIR_Project
+ * @authors Yamuu - Gagou
+ */
+
 package Model;
 
 import java.util.LinkedList;
@@ -37,9 +43,9 @@ public class SEIR extends SIR
         Vector<Double> res = new Vector<Double>();
 
         res.add(-super.beta * S * I);
-        res.add(super.beta * S * I - super.alpha*E);
-        res.add(super.alpha*E-super.gamma*I);
-        res.add(super.gamma*I);
+        res.add(super.beta * S * I - super.gamma*E);
+        res.add(super.gamma*E-super.alpha*I);
+        res.add(super.alpha*I);
 
         S = res.get(0);
         E = res.get(1);
@@ -95,5 +101,13 @@ public class SEIR extends SIR
             }
         }
         return state;
+    }
+
+    public double getE() {
+        return E;
+    }
+
+    public void setE(double e) {
+        E = e;
     }
 }

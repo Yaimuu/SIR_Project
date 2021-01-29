@@ -1,3 +1,9 @@
+/**
+ *
+ * @project SIR_Project
+ * @authors Yamuu - Gagou
+ */
+
 package View;
 
 import Controller.BehaviourController;
@@ -37,7 +43,8 @@ public class SpatialisationView implements View
 
     public void start()
     {
-        this.simulationCurrentTime = 0;
+        if(this.simulationCurrentTime > this.simulationDuration)
+            this.reset();
         timer.start();
     }
 
@@ -64,24 +71,6 @@ public class SpatialisationView implements View
                 updateCanvas();
             }
         };
-
-        /*for(int i = 0; i < this.bc.people.stream().count(); i++)
-        {
-            DoubleProperty x  = new SimpleDoubleProperty();
-            DoubleProperty y  = new SimpleDoubleProperty();
-            Timeline timeline = new Timeline(
-                    new KeyFrame(Duration.seconds(0),
-                            new KeyValue(x, 0),
-                            new KeyValue(y, 0)
-                    ),
-                    new KeyFrame(Duration.seconds(3),
-                            new KeyValue(x, bc.canvas.getWidth() - 20),
-                            new KeyValue(y, bc.canvas.getHeight() - 20)
-                    )
-            );
-            timeline.setAutoReverse(true);
-            timeline.setCycleCount(Timeline.INDEFINITE);
-        }*/
     }
 
     public void updateCanvas()

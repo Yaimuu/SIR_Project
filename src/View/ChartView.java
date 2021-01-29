@@ -1,3 +1,9 @@
+/**
+ *
+ * @project SIR_Project
+ * @authors Yamuu - Gagou
+ */
+
 package View;
 
 import Controller.MainController;
@@ -32,10 +38,10 @@ public class ChartView
                 XYChart.Series series = new XYChart.Series();
                 series.setName(MainController.model.getModelLabels().get(i));
 
-                for(int j =0; j < jours; j++)
+                for(int j = 0; j < jours-1; j++)
                 {
-//                    series.getData().add(new XYChart.Data(j+"", res.get(i).get(j)) );
-                    series.getData().add(new XYChart.Data(j+"", j*i ) );
+                    series.getData().add(new XYChart.Data(j+"", res.get(j).get(i)) );
+//                    series.getData().add(new XYChart.Data(j+"", j*i ) );
                 }
                 chartSIR.getData().add(series);
             }
@@ -43,6 +49,7 @@ public class ChartView
         catch (Exception e)
         {
             System.out.println("Values are not computable");
+            System.out.println(e.getMessage());
         }
 
     }
