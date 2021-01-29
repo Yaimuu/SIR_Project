@@ -137,14 +137,26 @@ public class SIR extends SimulationModel
         return state;
     }
 
+    /**
+     *
+     * @return
+     */
     public double getS() {
         return S;
     }
 
+    /**
+     *
+     * @return
+     */
     public double getI() {
         return I;
     }
 
+    /**
+     *
+     * @param i
+     */
     public void setI(double i) {
         I = i;
         this.S = super.N - (this.I + this.R);
@@ -154,15 +166,27 @@ public class SIR extends SimulationModel
         return R;
     }
 
+    /**
+     *
+     * @param r
+     */
     public void setR(double r) {
         R = r;
         this.S = super.N - (this.I + this.R);
     }
 
+    /**
+     *
+     * @return
+     */
     public double getI0() {
         return I0;
     }
 
+    /**
+     *
+     * @param i0
+     */
     public void setI0(double i0) {
         I0 = i0;
     }

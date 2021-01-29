@@ -46,6 +46,9 @@ public class Person implements Model
         this.speed = new Vec2d(1, 1);
     }
 
+    /**
+     * @param p
+     */
     public void isCollidingPerson(Person p)
     {
         if(p != this && p != null && p.state != State.Dead)
@@ -68,6 +71,11 @@ public class Person implements Model
         }
     }
 
+    /**
+     *
+     * @param width
+     * @param heigth
+     */
     public void isCollidingBounds(double width, double heigth)
     {
         if( this.getPosition().x + this.getRadius() >= width || this.getPosition().x - this.getRadius() <= 0 )
@@ -81,6 +89,9 @@ public class Person implements Model
         }
     }
 
+    /**
+     *
+     */
     public void move()
     {
         if(this.state != State.Dead)
@@ -91,47 +102,82 @@ public class Person implements Model
         }
     }
 
-    public void ChangeState(State newState)
-    {
-
-    }
-
+    /**
+     *
+     * @return
+     */
     public double getRadius() {
         return radius;
     }
 
+    /**
+     *
+     * @param radius
+     */
     public void setRadius(double radius) {
         this.radius = radius;
     }
 
+    /**
+     *
+     * @return
+     */
     public Vec2d getPosition() {
         return position;
     }
 
+    /**
+     *
+     * @param position
+     */
     public void setPosition(Vec2d position) {
         this.position = position;
     }
 
+    /**
+     *
+     * @return
+     */
     public Vec2d getSpeed() {
         return speed;
     }
-    
+
+    /**
+     *
+     * @param speed
+     */
     public void setSpeed(Vec2d speed) {
         this.speed = speed;
     }
 
+    /**
+     *
+     * @return
+     */
     public State getState() {
         return state;
     }
 
+    /**
+     *
+     * @param state
+     */
     public void setState(State state) {
         this.state = state;
     }
 
+    /**
+     *
+     * @return
+     */
     public double getDirection() {
         return direction;
     }
 
+    /**
+     *
+     * @param direction
+     */
     public void setDirection(double direction) {
         this.direction = direction;
     }

@@ -16,8 +16,10 @@ public class SEIR extends SIR
 {
     protected double E;
     protected double E0;
-    // TODO : SEIR
 
+    /**
+     *
+     */
     public SEIR()
     {
         super();
@@ -43,7 +45,7 @@ public class SEIR extends SIR
 
     /**
      *
-     * @return
+     * @return The simulation's result
      */
     @Override
     protected Vector<Double> calculateStep() {
@@ -148,18 +150,34 @@ public class SEIR extends SIR
         this.S = super.N - (this.I + this.R);
     }
 
+    /**
+     *
+     * @return
+     */
     public double getE() {
         return E;
     }
 
+    /**
+     *
+     * @param e
+     */
     public void setE(double e) {
         E = e;
     }
 
+    /**
+     *
+     * @return
+     */
     public double getE0() {
         return E0;
     }
 
+    /**
+     *
+     * @param e0
+     */
     public void setE0(double e0) {
         E0 = e0;
     }

@@ -30,7 +30,7 @@ public abstract class SimulationModel implements Model
         this.beta = 0.005;
         this.gamma = 0.3;
         this.N = 100;
-        this.tSpan = 50;
+        this.tSpan = 100;
         this.etatPopulation = new LinkedList<>();
         this.modelLabels = new LinkedList<>();
     }

@@ -15,6 +15,9 @@ public class SEIRBorn extends SEIR
     private Double eta; //Bornrate
     private Double mu;  //Deathrate
 
+    /**
+     *
+     */
     public SEIRBorn()
     {
         super();
@@ -84,18 +87,34 @@ public class SEIRBorn extends SEIR
         return state;
     }
 
+    /**
+     *
+     * @return
+     */
     public Double getEta() {
         return eta;
     }
 
+    /**
+     *
+     * @param eta
+     */
     public void setEta(Double eta) {
         this.eta = eta;
     }
 
+    /**
+     *
+     * @return
+     */
     public Double getMu() {
         return mu;
     }
 
+    /**
+     *
+     * @param mu
+     */
     public void setMu(Double mu) {
         this.mu = mu;
     }
