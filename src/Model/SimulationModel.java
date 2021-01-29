@@ -29,12 +29,10 @@ public abstract class SimulationModel implements Model
     protected List<Vector<Double>> y;
     protected List<String> modelLabels;
 
-    protected RungeKutta method;
-
     public SimulationModel()
     {
         this.alpha = 0.2;
-        this.beta = 0.5;
+        this.beta = 0.005;
         this.gamma = 0.3;
         this.N = 100;
         this.tSpan = 50;
@@ -48,10 +46,7 @@ public abstract class SimulationModel implements Model
 
         for (int j = 0; j < this.tSpan; j++)
         {
-            if(this.method != null)
-                yModel.add(this.method.computeStep());
-            else
-                yModel.add(this.calculateStep());
+            yModel.add(this.calculateStep());
         }
 
         this.y = yModel;

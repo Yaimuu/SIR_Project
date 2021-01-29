@@ -160,8 +160,8 @@ public class MainController implements Initializable {
         // TODO : Sliders
         try
         {
-            this.alphaSlider.setValue(MainController.model.getAlpha());
-            this.alphaTextField.setText(MainController.model.getAlpha()+"");
+            this.alphaSlider.setValue( MainController.model.getAlpha() );
+            this.alphaTextField.setText( MainController.model.getAlpha()+"" );
 
             this.betaSlider.setValue(MainController.model.getBeta());
             this.betaTextField.setText(MainController.model.getBeta()+"");
