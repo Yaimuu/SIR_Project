@@ -16,13 +16,16 @@ public class SIR extends SimulationModel
     protected double S;
     protected double I;
     protected double R;
+    protected double I0;
+    protected double R0;
 
     public SIR()
     {
         super();
-        this.I = 1;
-        this.R = 0;
-        this.S = super.N - (this.I + this.R);
+        this.I0 = 1;
+        this.R0 = 0;
+        this.resetValues();
+
         this.modelLabels = new LinkedList<>();
         if(this.modelLabels.size() < 3)
         {
@@ -44,14 +47,32 @@ public class SIR extends SimulationModel
         // TODO : Calculer la prochaine étape
         Vector<Double> res = new Vector<Double>();
         res.add(S + (-super.beta * S * I));
-        res.add(I + (super.beta*S*I-super.alpha*I));
-        res.add(R + (super.alpha*I));
+        res.add(I + (super.beta * S * I - super.gamma * I));
+        res.add(R + (super.gamma * I));
 
         S = res.get(0);
         I = res.get(1);
         R = res.get(2);
 
         return res;
+    }
+
+    @Override
+    protected Vector<Double> initialValues() {
+        this.resetValues();
+        Vector<Double> res = new Vector<Double>();
+        res.add(S);
+        res.add(I);
+        res.add(R);
+        return res;
+    }
+
+    @Override
+    protected void resetValues()
+    {
+        this.I = this.I0;
+        this.R = this.R0;
+        this.S = super.N - (this.I + this.R);
     }
 
     @Override
@@ -112,5 +133,13 @@ public class SIR extends SimulationModel
     public void setR(double r) {
         R = r;
         this.S = super.N - (this.I + this.R);
+    }
+
+    public double getI0() {
+        return I0;
+    }
+
+    public void setI0(double i0) {
+        I0 = i0;
     }
 }

@@ -169,8 +169,8 @@ public class MainController implements Initializable {
             this.gammaSlider.setValue(MainController.model.getGamma());
             this.gammaTextField.setText(MainController.model.getGamma()+"");
 
-            this.infectedSlider.setValue( ((SIR)MainController.model).getI() );
-            this.infectedTextField.setText( ((SIR)MainController.model).getI() + "" );
+            this.infectedSlider.setValue( ((SIR)MainController.model).getI0() );
+            this.infectedTextField.setText( ((SIR)MainController.model).getI0() + "" );
 
             this.exposedSlider.setValue( ((SEIR)MainController.model).getE() );
             this.exposedTextField.setText( ((SEIR)MainController.model).getE() + "");
@@ -230,7 +230,7 @@ public class MainController implements Initializable {
             @Override
             public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue)
             {
-                ((SIR)MainController.model).setI((double)newValue);
+                ((SIR)MainController.model).setI0((double)newValue);
                 infectedTextField.setText(newValue.toString());
                 update();
             }
@@ -241,7 +241,7 @@ public class MainController implements Initializable {
             @Override
             public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue)
             {
-                ((SEIR)((SIR)MainController.model)).setE((double)newValue);
+                ((SEIR)((SIR)MainController.model)).setE0((double)newValue);
                 exposedTextField.setText(newValue.toString());
                 update();
             }
