@@ -1,7 +1,14 @@
+/**
+ * BehaviourController : Handles the behaviour of the population
+ * @project SIR_Project
+ * @authors Yamuu - Gagou
+ */
+
 package Controller;
 
 import Model.Person;
 import View.PersonView;
+import com.sun.javafx.geom.Vec2d;
 import javafx.scene.canvas.Canvas;
 
 import javafx.scene.canvas.GraphicsContext;
@@ -11,8 +18,8 @@ import java.util.List;
 
 public class BehaviourController implements Controller
 {
-    private int numberPeople = 50;
-    private int initialInfected = 1;
+    private int numberPeople = SettingsController.defaultPopulation;
+    private int initialInfected = SettingsController.defaultPopulationInfected;
     private List<PersonView> people;
     private Canvas canvas;
 
@@ -56,6 +63,9 @@ public class BehaviourController implements Controller
         for (int i = 0; i < nbPeople; i++)
         {
             Person person = new Person();
+            double ranPosX = person.getRadius() + Math.random() * (this.canvas.getWidth() - person.getRadius() * 2);
+            double ranPosY = person.getRadius() + Math.random() * (this.canvas.getHeight() - person.getRadius() * 2);
+            person.setPosition(new Vec2d(ranPosX, ranPosY));
             if(i < this.initialInfected)
             {
                 person.setState(Person.State.Infected);
@@ -88,5 +98,13 @@ public class BehaviourController implements Controller
 
     public void setCanvas(Canvas canvas) {
         this.canvas = canvas;
+    }
+
+    public int getInitialInfected() {
+        return initialInfected;
+    }
+
+    public void setInitialInfected(int initialInfected) {
+        this.initialInfected = initialInfected;
     }
 }

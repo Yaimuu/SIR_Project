@@ -1,5 +1,5 @@
 /**
- *
+ * MainController : Handles Main.fxml
  * @project SIR_Project
  * @authors Yamuu - Gagou
  */
@@ -11,7 +11,6 @@ import Model.SEIRBorn;
 import Model.SIR;
 import Model.SimulationModel;
 import View.ChartView;
-import View.Main;
 import View.SpatialisationView;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -33,8 +32,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-
-public class MainController implements Initializable {
+public class MainController implements Initializable, Controller {
 
     /**
      * Button
@@ -67,6 +65,8 @@ public class MainController implements Initializable {
     private Slider infectedSlider;
     @FXML
     private Slider exposedSlider;
+    @FXML
+    private Slider populationSlider;
 
     /**
      * TextFields
@@ -85,6 +85,8 @@ public class MainController implements Initializable {
     private TextField infectedTextField;
     @FXML
     private TextField exposedTextField;
+    @FXML
+    private TextField populationTextField;
 
     /**
      * ComboBox
@@ -100,7 +102,7 @@ public class MainController implements Initializable {
     @FXML
     private Pane mapPanel;
     @FXML
-    private Pane graphInputPanel;
+    private Pane publicPoliciesPanel;
     @FXML
     private Pane mapInputPanel;
 
@@ -111,6 +113,12 @@ public class MainController implements Initializable {
     private Canvas canvas;
 
     /**
+     * Labels
+     */
+    @FXML
+    private Label timeLabel;
+
+    /**
      * Line Chart
      */
     @FXML
@@ -119,7 +127,7 @@ public class MainController implements Initializable {
     /**
      * Model
      */
-    public static SimulationModel model = new SIR();
+    public static SimulationModel model;
     protected List<String> modelStrings = new LinkedList<>();
 
     /**
@@ -139,27 +147,34 @@ public class MainController implements Initializable {
         /**
          * Inputs initialisation
          */
-
-        this.spatialisationView = new SpatialisationView(canvas);
-        this.spatialisationView.canvasInitialization();
-
-        this.mapPanel.setVisible(false);
-        this.mapInputPanel.setVisible(false);
-
+        this.spatialisationView = new SpatialisationView(this.canvas);
         this.chartView = new ChartView();
-        this.chartView.draw(this.chartSIR);
 
         this.modelStrings.add("Modèle SIR");
         this.modelStrings.add("Modèle SEIR");
         this.modelStrings.add("Modèle SEIR avec naissance");
         ObservableList<String> data = FXCollections.observableArrayList(this.modelStrings.get(0), this.modelStrings.get(1), this.modelStrings.get(2));
         this.modelComboBox.setItems(data);
-
         this.modelComboBox.getSelectionModel().select(0);
 
-        // TODO : Sliders
+        this.updateSimulationModel();
+
+        this.mapPanel.setVisible(false);
+        this.mapInputPanel.setVisible(false);
+        this.publicPoliciesPanel.setVisible(false);
+
+        this.spatialisationView.canvasInitialization();
+        this.spatialisationView.setTimeLabel(this.timeLabel);
+        this.chartView.draw(this.chartSIR);
+
+        /**
+         * Setup Sliders
+         */
         try
         {
+            this.populationSlider.setValue( SettingsController.defaultPopulation );
+            this.populationTextField.setText( SettingsController.defaultPopulation + "");
+
             this.alphaSlider.setValue( MainController.model.getAlpha() );
             this.alphaTextField.setText( MainController.model.getAlpha()+"" );
 
@@ -183,12 +198,12 @@ public class MainController implements Initializable {
         }
         catch (Exception e) {
             // An exception is launched because the model is setup as an SIR model, we do not need to process the exception
+            System.out.println(e.getMessage());
         }
 
         /**
          * -------------- Event Listeners
          */
-
             /**
              * Slider Listeners
              */
@@ -232,6 +247,7 @@ public class MainController implements Initializable {
             {
                 ((SIR)MainController.model).setI0((double)newValue);
                 infectedTextField.setText(newValue.toString());
+                spatialisationView.setPopulationInfected( (int)((double)newValue) );
                 update();
             }
         });
@@ -265,6 +281,18 @@ public class MainController implements Initializable {
             {
                 ((SEIRBorn)MainController.model).setMu((double)newValue);
                 deathTextField.setText(newValue.toString());
+                update();
+            }
+        });
+
+        this.populationSlider.valueProperty().addListener(new ChangeListener<Number>() {
+
+            @Override
+            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue)
+            {
+                spatialisationView.setPopulationSize( (int)((double)newValue) );
+                populationTextField.setText(newValue.toString());
+                infectedSlider.setMax(populationSlider.getValue());
                 update();
             }
         });
@@ -308,14 +336,34 @@ public class MainController implements Initializable {
         {
             case 0:
                 MainController.model = new SIR();
+                this.alphaSlider.setDisable(true);
+                this.exposedSlider.setDisable(true);
+
+                this.bornSlider.setDisable(true);
+                this.deathSlider.setDisable(true);
                 break;
             case 1:
                 MainController.model = new SEIR();
+                this.alphaSlider.setDisable(false);
+                this.exposedSlider.setDisable(false);
+
+                this.bornSlider.setDisable(true);
+                this.deathSlider.setDisable(true);
                 break;
             case 2:
                 MainController.model = new SEIRBorn();
+                this.alphaSlider.setDisable(false);
+                this.exposedSlider.setDisable(false);
+                this.bornSlider.setDisable(false);
+                this.deathSlider.setDisable(false);
                 break;
         }
+        if(this.toggleSimulation.isSelected())
+        {
+            this.exposedSlider.setDisable(true);
+            this.bornSlider.setDisable(true);
+        }
+
         this.chartView.draw(this.chartSIR);
         this.spatialisationView.reset();
     }
@@ -328,20 +376,34 @@ public class MainController implements Initializable {
         if(this.toggleSimulation.isSelected())
         {
             this.graphPanel.setVisible(false);
-            this.graphInputPanel.setVisible(false);
+            this.publicPoliciesPanel.setVisible(true);
 
             this.mapPanel.setVisible(true);
             this.mapInputPanel.setVisible(true);
+
+            // Switch min and max of betaSlider
+            this.betaSlider.setMin(SettingsController.minBetaMap);
+            this.betaSlider.setMax(SettingsController.maxBetaMap);
+
+            this.infectedSlider.setMax(this.populationSlider.getValue());
+            this.infectedSlider.setBlockIncrement(1);
 
             this.toggleSimulation.setText("Graph Visualization");
         }
         else
         {
             this.graphPanel.setVisible(true);
-            this.graphInputPanel.setVisible(true);
+            this.publicPoliciesPanel.setVisible(false);
 
             this.mapPanel.setVisible(false);
             this.mapInputPanel.setVisible(false);
+
+            // Switch min and max of betaSlider
+            this.betaSlider.setMin(SettingsController.minBetaGraph);
+            this.betaSlider.setMax(SettingsController.maxBetaGraph);
+
+            this.infectedSlider.setMax(100);
+            this.infectedSlider.setBlockIncrement(0.1);
 
             this.spatialisationView.stop();
 

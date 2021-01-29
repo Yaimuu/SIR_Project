@@ -16,8 +16,10 @@ public class SEIR extends SIR
 {
     protected double E;
     protected double E0;
-    // TODO : SEIR
 
+    /**
+     *
+     */
     public SEIR()
     {
         super();
@@ -41,6 +43,10 @@ public class SEIR extends SIR
         }
     }
 
+    /**
+     *
+     * @return The simulation's result
+     */
     @Override
     protected Vector<Double> calculateStep() {
         Vector<Double> res = new Vector<Double>();
@@ -58,6 +64,12 @@ public class SEIR extends SIR
         return res;
     }
 
+    /**
+     *
+     * @param p1
+     * @param p2
+     * @return
+     */
     @Override
     protected Person.State spreadInfection(Person p1, Person p2)
     {
@@ -77,6 +89,11 @@ public class SEIR extends SIR
         return state;
     }
 
+    /**
+     *
+     * @param p
+     * @return
+     */
     @Override
     protected Person.State updatePersonState(Person p)
     {
@@ -89,7 +106,7 @@ public class SEIR extends SIR
 
         if(p.getState() == Person.State.Infected)
         {
-            if(super.alpha >= randRatio)
+            if(super.gamma >= randRatio)
             {
                 state = Person.State.Recovered;
                 p.setState(Person.State.Recovered);
@@ -97,7 +114,7 @@ public class SEIR extends SIR
         }
         else if(p.getState() == Person.State.Exposed)
         {
-            if(super.gamma >= randRatio)
+            if(super.alpha >= randRatio)
             {
                 state = Person.State.Infected;
                 p.setState(Person.State.Infected);
@@ -106,6 +123,10 @@ public class SEIR extends SIR
         return state;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     protected Vector<Double> initialValues() {
         this.resetValues();
@@ -117,6 +138,9 @@ public class SEIR extends SIR
         return res;
     }
 
+    /**
+     *
+     */
     @Override
     protected void resetValues()
     {
@@ -126,18 +150,34 @@ public class SEIR extends SIR
         this.S = super.N - (this.I + this.R);
     }
 
+    /**
+     *
+     * @return
+     */
     public double getE() {
         return E;
     }
 
+    /**
+     *
+     * @param e
+     */
     public void setE(double e) {
         E = e;
     }
 
+    /**
+     *
+     * @return
+     */
     public double getE0() {
         return E0;
     }
 
+    /**
+     *
+     * @param e0
+     */
     public void setE0(double e0) {
         E0 = e0;
     }

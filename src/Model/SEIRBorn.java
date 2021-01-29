@@ -15,8 +15,9 @@ public class SEIRBorn extends SEIR
     private Double eta; //Bornrate
     private Double mu;  //Deathrate
 
-    // TODO : SEIR avec gestion des naissances
-
+    /**
+     *
+     */
     public SEIRBorn()
     {
         super();
@@ -24,15 +25,19 @@ public class SEIRBorn extends SEIR
         this.mu = 0.075;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     protected Vector<Double> calculateStep()
     {
         Vector<Double> res = new Vector<Double>();
 
-        res.add(-super.beta * S * I + eta*super.N-mu*S);
-        res.add(super.beta * S * I - super.gamma*E - mu*E);
-        res.add(super.gamma*E-super.alpha*I -mu*I);
-        res.add(super.alpha*I -mu*R);
+        res.add(S + (-super.beta * S * I + eta * super.N - mu * S));
+        res.add(E + (super.beta * S * I - super.alpha * E - mu * E));
+        res.add(I + (super.alpha * E - super.gamma * I -mu * I));
+        res.add(R + (super.gamma * I -mu * R));
 
         S = res.get(0);
         E = res.get(1);
@@ -42,6 +47,11 @@ public class SEIRBorn extends SEIR
         return res;
     }
 
+    /**
+     *
+     * @param p
+     * @return
+     */
     @Override
     protected Person.State updatePersonState(Person p)
     {
@@ -51,46 +61,60 @@ public class SEIRBorn extends SEIR
         double min = 0d;
         double max = 1d;
         double randRatio = min + (max - min) * r.nextDouble();
+        double randRatioDead = min + (max - min) * r.nextDouble();
 
         if(p.getState() == Person.State.Infected)
         {
-            if(super.alpha >= randRatio)
+            if(super.gamma >= randRatio)
             {
                 state = Person.State.Recovered;
                 p.setState(Person.State.Recovered);
             }
-        }
-        else if(p.getState() == Person.State.Exposed)
-        {
-            if(super.gamma >= randRatio)
-            {
-                state = Person.State.Infected;
-                p.setState(Person.State.Infected);
-            }
-        }
-        else if(p.getState() == Person.State.Infected)
-        {
-            if(this.mu >= randRatio)
+            else if(this.mu >= randRatio)
             {
                 state = Person.State.Dead;
                 p.setState(Person.State.Dead);
             }
         }
+        else if(p.getState() == Person.State.Exposed)
+        {
+            if(super.alpha >= randRatio)
+            {
+                state = Person.State.Infected;
+                p.setState(Person.State.Infected);
+            }
+        }
         return state;
     }
 
+    /**
+     *
+     * @return
+     */
     public Double getEta() {
         return eta;
     }
 
+    /**
+     *
+     * @param eta
+     */
     public void setEta(Double eta) {
         this.eta = eta;
     }
 
+    /**
+     *
+     * @return
+     */
     public Double getMu() {
         return mu;
     }
 
+    /**
+     *
+     * @param mu
+     */
     public void setMu(Double mu) {
         this.mu = mu;
     }

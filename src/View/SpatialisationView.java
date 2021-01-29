@@ -11,6 +11,7 @@ import javafx.animation.AnimationTimer;
 import javafx.animation.Timeline;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 
 import java.util.List;
@@ -21,7 +22,7 @@ public class SpatialisationView implements View
     private AnimationTimer timer;
     private int simulationCurrentTime = 0;
     private int simulationDuration = 2000;
-    private Timeline timeline;
+    private Label timeLabel = null;
 
     private boolean start = false;
     private boolean reset = false;
@@ -36,9 +37,14 @@ public class SpatialisationView implements View
         this.bc = new BehaviourController(c);
     }
 
-    public SpatialisationView(List<PersonView> people, Canvas c)
+    public SpatialisationView(Canvas c, int poulationInfected)
     {
-        this.bc = new BehaviourController(people, c);
+        this.bc = new BehaviourController(poulationInfected, c);
+    }
+
+    public SpatialisationView(Canvas c, int poulationInfected, double population)
+    {
+        this.bc = new BehaviourController(c);
     }
 
     public void start()
@@ -95,7 +101,6 @@ public class SpatialisationView implements View
                     }
                 }
             }
-            this.simulationCurrentTime++;
         }
     }
 
@@ -110,6 +115,25 @@ public class SpatialisationView implements View
         {
             pv.draw();
         }
+
+        if(this.timeLabel != null)
+        {
+            this.timeLabel.setText("Temps : " + this.simulationCurrentTime);
+        }
+
+        this.simulationCurrentTime++;
+    }
+
+    public void setPopulationInfected(int n)
+    {
+        this.bc.setInitialInfected(n);
+        this.reset();
+    }
+
+    public void setPopulationSize(int n)
+    {
+        this.bc.setNumberPeople(n);
+        this.reset();
     }
 
     public boolean isStart() {
@@ -126,5 +150,13 @@ public class SpatialisationView implements View
 
     public void setReset(boolean reset) {
         this.reset = reset;
+    }
+
+    public Label getTimeLabel() {
+        return timeLabel;
+    }
+
+    public void setTimeLabel(Label timeLabel) {
+        this.timeLabel = timeLabel;
     }
 }

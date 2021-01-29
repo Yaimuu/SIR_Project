@@ -1,5 +1,5 @@
 /**
- *
+ * ChartView : Displaying of the simulation on a line chart
  * @project SIR_Project
  * @authors Yamuu - Gagou
  */
@@ -7,19 +7,13 @@
 package View;
 
 import Controller.MainController;
-import Model.SIR;
-import Model.SimulationModel;
-import javafx.scene.Scene;
 import javafx.scene.chart.LineChart;
-import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
-import javafx.stage.Stage;
 
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Vector;
 
-public class ChartView
+public class ChartView implements View
 {
     public ChartView()
     {}
@@ -27,7 +21,7 @@ public class ChartView
     public void draw(LineChart<Number,Number> chartSIR)
     {
         MainController.model.calculateModel();
-        List<Vector<Double>> res = MainController.model.getY();
+        List<Vector<Double>> res = MainController.model.getEtatPopulation();
         int jours = res.size();
 
         try
@@ -54,5 +48,6 @@ public class ChartView
 
     }
 
-
+    @Override
+    public void draw() {}
 }
