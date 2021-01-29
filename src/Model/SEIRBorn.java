@@ -1,3 +1,9 @@
+/**
+ *
+ * @project SIR_Project
+ * @authors Yamuu - Gagou
+ */
+
 package Model;
 
 import java.util.List;
@@ -24,9 +30,9 @@ public class SEIRBorn extends SEIR
         Vector<Double> res = new Vector<Double>();
 
         res.add(-super.beta * S * I + eta*super.N-mu*S);
-        res.add(super.beta * S * I - super.alpha*E - mu*E);
-        res.add(super.alpha*E-super.gamma*I -mu*I);
-        res.add(super.gamma*I -mu*R);
+        res.add(super.beta * S * I - super.gamma*E - mu*E);
+        res.add(super.gamma*E-super.alpha*I -mu*I);
+        res.add(super.alpha*I -mu*R);
 
         S = res.get(0);
         E = res.get(1);
@@ -71,5 +77,21 @@ public class SEIRBorn extends SEIR
             }
         }
         return state;
+    }
+
+    public Double getEta() {
+        return eta;
+    }
+
+    public void setEta(Double eta) {
+        this.eta = eta;
+    }
+
+    public Double getMu() {
+        return mu;
+    }
+
+    public void setMu(Double mu) {
+        this.mu = mu;
     }
 }

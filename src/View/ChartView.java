@@ -1,3 +1,9 @@
+/**
+ *
+ * @project SIR_Project
+ * @authors Yamuu - Gagou
+ */
+
 package View;
 
 import Controller.MainController;
@@ -34,8 +40,8 @@ public class ChartView
 
                 for(int j =0; j < jours; j++)
                 {
-//                    series.getData().add(new XYChart.Data(j+"", res.get(i).get(j)) );
-                    series.getData().add(new XYChart.Data(j+"", j*i ) );
+                    series.getData().add(new XYChart.Data(j+"", res.get(i).get(j)) );
+//                    series.getData().add(new XYChart.Data(j+"", j*i ) );
                 }
                 chartSIR.getData().add(series);
             }

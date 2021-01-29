@@ -1,3 +1,9 @@
+/**
+ *
+ * @project SIR_Project
+ * @authors Yamuu - Gagou
+ */
+
 package View;
 
 import Controller.BehaviourController;
@@ -37,7 +43,8 @@ public class SpatialisationView implements View
 
     public void start()
     {
-        this.simulationCurrentTime = 0;
+        if(this.simulationCurrentTime > this.simulationDuration)
+            this.reset();
         timer.start();
     }
 

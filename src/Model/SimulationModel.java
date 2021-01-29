@@ -1,3 +1,9 @@
+/**
+ *
+ * @project SIR_Project
+ * @authors Yamuu - Gagou
+ */
+
 package Model;
 
 import java.util.LinkedList;
@@ -9,6 +15,10 @@ public abstract class SimulationModel implements Model
     protected int step;
     protected boolean spatialization;
 
+    protected double S;
+    protected double I;
+    protected double R;
+
     protected double N; //population totale
     protected double alpha;
     protected double beta;
@@ -19,9 +29,11 @@ public abstract class SimulationModel implements Model
     protected List<Vector<Double>> y;
     protected List<String> modelLabels;
 
+    protected RungeKutta method;
+
     public SimulationModel()
     {
-        this.alpha = 0.002;
+        this.alpha = 0.2;
         this.beta = 0.5;
         this.gamma = 0.3;
         this.N = 100;
@@ -36,7 +48,10 @@ public abstract class SimulationModel implements Model
 
         for (int j = 0; j < this.tSpan; j++)
         {
-            yModel.add(this.calculateStep());
+            if(this.method != null)
+                yModel.add(this.method.computeStep());
+            else
+                yModel.add(this.calculateStep());
         }
 
         this.y = yModel;

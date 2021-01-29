@@ -1,4 +1,8 @@
-
+/**
+ *
+ * @project SIR_Project
+ * @authors Yamuu - Gagou
+ */
 
 package Model;
 
@@ -40,8 +44,8 @@ public class SIR extends SimulationModel
         // TODO : Calculer la prochaine étape
         Vector<Double> res = new Vector<Double>();
         res.add(S + (-super.beta * S * I));
-        res.add(I + (super.beta*S*I-super.gamma*I));
-        res.add(R + (super.gamma*I));
+        res.add(I + (super.beta*S*I-super.alpha*I));
+        res.add(R + (super.alpha*I));
 
         S = res.get(0);
         I = res.get(1);
@@ -86,5 +90,27 @@ public class SIR extends SimulationModel
             }
         }
         return state;
+    }
+
+    public double getS() {
+        return S;
+    }
+
+    public double getI() {
+        return I;
+    }
+
+    public void setI(double i) {
+        I = i;
+        this.S = super.N - (this.I + this.R);
+    }
+
+    public double getR() {
+        return R;
+    }
+
+    public void setR(double r) {
+        R = r;
+        this.S = super.N - (this.I + this.R);
     }
 }
