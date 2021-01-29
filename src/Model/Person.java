@@ -9,7 +9,7 @@ import javafx.animation.AnimationTimer;
 public class Person implements Model
 {
 
-    private double radius = 10;
+    private double radius = 5;
     private Vec2d position;
     private Vec2d speed;
     private double direction;
@@ -26,8 +26,8 @@ public class Person implements Model
 
     public Person()
     {
-        double ranPosX = this.radius + Math.random() * (400 - this.radius);
-        double ranPosY = this.radius + Math.random() * (400 - this.radius);
+        double ranPosX = this.radius + Math.random() * (100 - this.radius);
+        double ranPosY = this.radius + Math.random() * (100 - this.radius);
         double ranSpeedX = 1 + Math.random() * (50 - 1);
         double ranSpeedY = 1 + Math.random() * (50 - 1);
         double ranDir = 0 + Math.random() * (360 - 0);
@@ -44,12 +44,6 @@ public class Person implements Model
         this.direction = ranDir;
         this.position = new Vec2d(x, y);
         this.speed = new Vec2d(1, 1);
-    }
-
-    public void OnCollisionEnter()
-    {
-//        this.speed.x *= -1;
-//        this.speed.y *= -1;
     }
 
     public void isCollidingPerson(Person p)

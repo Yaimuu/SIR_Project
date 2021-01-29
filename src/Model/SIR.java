@@ -6,6 +6,8 @@
 
 package Model;
 
+import Controller.SettingsController;
+
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
@@ -41,6 +43,10 @@ public class SIR extends SimulationModel
         }
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     protected Vector<Double> calculateStep()
     {
@@ -57,6 +63,10 @@ public class SIR extends SimulationModel
         return res;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     protected Vector<Double> initialValues() {
         this.resetValues();
@@ -67,6 +77,9 @@ public class SIR extends SimulationModel
         return res;
     }
 
+    /**
+     *
+     */
     @Override
     protected void resetValues()
     {
@@ -75,6 +88,12 @@ public class SIR extends SimulationModel
         this.S = super.N - (this.I + this.R);
     }
 
+    /**
+     *
+     * @param p1
+     * @param p2
+     * @return
+     */
     @Override
     protected Person.State spreadInfection(Person p1, Person p2)
     {
@@ -94,6 +113,11 @@ public class SIR extends SimulationModel
         return state;
     }
 
+    /**
+     *
+     * @param p
+     * @return
+     */
     @Override
     protected Person.State updatePersonState(Person p)
     {
@@ -104,7 +128,7 @@ public class SIR extends SimulationModel
             double min = 0d;
             double max = 1d;
             double randRatio = min + (max - min) * r.nextDouble();
-            if(super.alpha >= randRatio)
+            if(super.gamma >= randRatio * SettingsController.defaultRecoveryTime)
             {
                 state = Person.State.Recovered;
                 p.setState(Person.State.Recovered);

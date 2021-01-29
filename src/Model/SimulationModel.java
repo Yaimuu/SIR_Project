@@ -1,5 +1,5 @@
 /**
- *
+ * SimulationModel : Abstract class of SIR models
  * @project SIR_Project
  * @authors Yamuu - Gagou
  */
@@ -21,7 +21,7 @@ public abstract class SimulationModel implements Model
     protected double gamma;
 
     protected double tSpan;
-    protected List<Vector<Double>> y;
+    protected List<Vector<Double>> etatPopulation;
     protected List<String> modelLabels;
 
     public SimulationModel()
@@ -31,10 +31,14 @@ public abstract class SimulationModel implements Model
         this.gamma = 0.3;
         this.N = 100;
         this.tSpan = 50;
-        this.y = new LinkedList<>();
+        this.etatPopulation = new LinkedList<>();
         this.modelLabels = new LinkedList<>();
     }
 
+    /**
+     * Method used to compute values of the model and store it in a list of vectors
+     * @return The result of the simulation in a list of vectors
+     */
     public List<Vector<Double>> calculateModel()
     {
         List<Vector<Double>> yModel = new LinkedList<>();
@@ -44,18 +48,21 @@ public abstract class SimulationModel implements Model
             yModel.add(this.calculateStep());
         }
 
-        this.y = yModel;
+        this.etatPopulation = yModel;
         return yModel;
     }
 
+    /**
+     * Display the simulation's result in the console
+     */
     public void displayResult()
     {
-        for(int i = 0; i < this.y.size(); i++)
+        for(int i = 0; i < this.etatPopulation.size(); i++)
         {
             String line = "";
-            for (int j = 0; j < this.y.get(i).size(); j++)
+            for (int j = 0; j < this.etatPopulation.get(i).size(); j++)
             {
-                line += this.y.get(i).get(j).toString() + " ";
+                line += this.etatPopulation.get(i).get(j).toString() + " ";
             }
             System.out.println(line);
         }
@@ -110,12 +117,12 @@ public abstract class SimulationModel implements Model
         this.tSpan = tSpan;
     }
 
-    public List<Vector<Double>> getY() {
-        return y;
+    public List<Vector<Double>> getEtatPopulation() {
+        return etatPopulation;
     }
 
-    public void setY(List<Vector<Double>> y) {
-        this.y = y;
+    public void setEtatPopulation(List<Vector<Double>> etatPopulation) {
+        this.etatPopulation = etatPopulation;
     }
 
     public List<String> getModelLabels() {
