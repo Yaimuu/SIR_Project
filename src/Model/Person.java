@@ -1,6 +1,7 @@
 package Model;
 
 import Controller.MainController;
+import Controller.SettingsController;
 import com.sun.javafx.geom.Vec2d;
 
 import com.sun.webkit.Timer;
@@ -9,11 +10,16 @@ import javafx.animation.AnimationTimer;
 public class Person implements Model
 {
 
-    private double radius = 5;
+    private double radius = SettingsController.defaultPersonRadius;
     private Vec2d position;
     private Vec2d speed;
     private double direction;
     private State state = State.Safe;
+
+    private boolean masked = true;
+    private boolean vaccined = false;
+    private boolean confined = false;
+    private boolean quarantained = false;
 
     public enum State
     {
@@ -180,5 +186,37 @@ public class Person implements Model
      */
     public void setDirection(double direction) {
         this.direction = direction;
+    }
+
+    public boolean isMasked() {
+        return masked;
+    }
+
+    public void setMasked(boolean masked) {
+        this.masked = masked;
+    }
+
+    public boolean isVaccined() {
+        return vaccined;
+    }
+
+    public void setVaccined(boolean vaccined) {
+        this.vaccined = vaccined;
+    }
+
+    public boolean isConfined() {
+        return confined;
+    }
+
+    public void setConfined(boolean confined) {
+        this.confined = confined;
+    }
+
+    public boolean isQuarantained() {
+        return quarantained;
+    }
+
+    public void setQuarantained(boolean quarantained) {
+        this.quarantained = quarantained;
     }
 }

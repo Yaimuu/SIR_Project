@@ -17,7 +17,11 @@ public class SettingsController implements Controller
     public static final double minBetaGraph = 0.0001;
     public static final double maxBetaGraph = 0.01;
 
+    /**
+     * Default spatialisation values
+     */
     public static final double defaultRecoveryTime = 8;
     public static final int defaultPopulation = 100;
     public static final int defaultPopulationInfected = 10;
+    public static final int defaultPersonRadius = 10;
 }
