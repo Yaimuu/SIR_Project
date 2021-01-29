@@ -19,7 +19,6 @@ public abstract class SimulationModel implements Model
     protected double alpha;
     protected double beta;
     protected double gamma;
-    protected double intialPopInfected;
 
     protected double tSpan;
     protected List<Vector<Double>> y;
@@ -27,7 +26,7 @@ public abstract class SimulationModel implements Model
 
     public SimulationModel()
     {
-        this.alpha = 0.2;
+        this.alpha = 0.02;
         this.beta = 0.005;
         this.gamma = 0.3;
         this.N = 100;
@@ -39,7 +38,7 @@ public abstract class SimulationModel implements Model
     public List<Vector<Double>> calculateModel()
     {
         List<Vector<Double>> yModel = new LinkedList<>();
-
+        yModel.add(this.initialValues());
         for (int j = 0; j < this.tSpan; j++)
         {
             yModel.add(this.calculateStep());
@@ -63,6 +62,8 @@ public abstract class SimulationModel implements Model
     }
 
     protected abstract Vector<Double> calculateStep();
+    protected abstract Vector<Double> initialValues();
+    protected abstract void resetValues();
 
     protected abstract Person.State spreadInfection(Person p1, Person p2);
     protected abstract Person.State updatePersonState(Person p);

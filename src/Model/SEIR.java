@@ -15,12 +15,15 @@ import java.util.Vector;
 public class SEIR extends SIR
 {
     protected double E;
+    protected double E0;
     // TODO : SEIR
 
     public SEIR()
     {
         super();
         this.E = 0;
+        this.resetValues();
+
         this.modelLabels = new LinkedList<>();
         if(this.modelLabels.size() < 4)
         {
@@ -42,10 +45,10 @@ public class SEIR extends SIR
     protected Vector<Double> calculateStep() {
         Vector<Double> res = new Vector<Double>();
 
-        res.add(-super.beta * S * I);
-        res.add(super.beta * S * I - super.gamma*E);
-        res.add(super.gamma*E-super.alpha*I);
-        res.add(super.alpha*I);
+        res.add(S + (-super.beta * S * I) );
+        res.add(E + (super.beta * S * I - super.alpha * E) );
+        res.add(I + (super.alpha * E - super.gamma * I));
+        res.add(R + (super.gamma * I));
 
         S = res.get(0);
         E = res.get(1);
@@ -103,11 +106,39 @@ public class SEIR extends SIR
         return state;
     }
 
+    @Override
+    protected Vector<Double> initialValues() {
+        this.resetValues();
+        Vector<Double> res = new Vector<Double>();
+        res.add(S);
+        res.add(E);
+        res.add(I);
+        res.add(R);
+        return res;
+    }
+
+    @Override
+    protected void resetValues()
+    {
+        this.I = this.I0;
+        this.E = this.E0;
+        this.R = this.R0;
+        this.S = super.N - (this.I + this.R);
+    }
+
     public double getE() {
         return E;
     }
 
     public void setE(double e) {
         E = e;
+    }
+
+    public double getE0() {
+        return E0;
+    }
+
+    public void setE0(double e0) {
+        E0 = e0;
     }
 }
