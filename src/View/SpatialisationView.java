@@ -125,10 +125,27 @@ public class SpatialisationView implements View
         this.simulationCurrentTime++;
     }
 
-    public void setPublicPolicie()
+    public void setMaskPolicie(boolean active)
     {
-
+        this.bc.maskPeople(active);
     }
+
+    public void setConfinementPolicie(boolean active)
+    {
+        this.bc.confinePeople(active);
+    }
+
+    public void setQuarantinePolicie(boolean active)
+    {
+        this.bc.quarantinePeople(active);
+    }
+
+    public void setVaccinationPolicie(boolean active)
+    {
+        // TODO : Vaccinate people
+    }
+
+
 
     public void setPopulationInfected(int n)
     {

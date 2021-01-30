@@ -14,7 +14,6 @@ import java.util.Vector;
 
 public class SettingsController implements Controller
 {
-    // TODO : Gestion des options
     /**
      * Beta configuration
      */
@@ -51,6 +50,7 @@ public class SettingsController implements Controller
     public static final int defaultPersonRadius = 10;
 
     public static final double amountOfConfined = 0.8;
-    public static final double amountOfQuarantined = 0.95;
+    public static final double amountOfQuarantined = 0.9;
+    public static final double amountOfMasked = 0.95;
 
 }

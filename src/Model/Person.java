@@ -30,7 +30,8 @@ public class Person implements Model
         Exposed,
         Infected,
         Recovered,
-        Dead
+        Dead,
+        Vaccined
     }
 
     public Person()
@@ -103,10 +104,13 @@ public class Person implements Model
      */
     public void move()
     {
-        if(this.state != State.Dead && !this.confined)
+        if(this.state != State.Dead)
         {
-            this.position.x += this.speed.x *  Math.cos(this.direction * Math.PI /180);
-            this.position.y += this.speed.y * Math.sin(this.direction * Math.PI /180);
+            if(!this.confined)
+            {
+                this.position.x += this.speed.x *  Math.cos(this.direction * Math.PI /180);
+                this.position.y += this.speed.y * Math.sin(this.direction * Math.PI /180);
+            }
             MainController.model.updatePersonState(this);
         }
     }
