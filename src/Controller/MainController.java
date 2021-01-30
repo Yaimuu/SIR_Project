@@ -381,12 +381,23 @@ public class MainController implements Initializable, Controller {
             this.mapPanel.setVisible(true);
             this.mapInputPanel.setVisible(true);
 
-            // Switch min and max of betaSlider
+            // Beta slider
             this.betaSlider.setMin(SettingsController.minBetaMap);
             this.betaSlider.setMax(SettingsController.maxBetaMap);
 
+            // Infected slider
             this.infectedSlider.setMax(this.populationSlider.getValue());
             this.infectedSlider.setBlockIncrement(1);
+
+            // Gamma slider
+            this.gammaSlider.setMin(SettingsController.minRecoveryTimeMap);
+            this.gammaSlider.setMax(SettingsController.maxRecoveryTimeMap);
+            this.gammaSlider.setValue(SettingsController.defaultRecoveryTimeMap);
+
+            // Alpha slider
+            this.alphaSlider.setMin(SettingsController.minAlphaMap);
+            this.alphaSlider.setMax(SettingsController.maxAlphaMap);
+            this.alphaSlider.setValue(SettingsController.defaultAlphaMap);
 
             this.toggleSimulation.setText("Graph Visualization");
         }
@@ -398,12 +409,23 @@ public class MainController implements Initializable, Controller {
             this.mapPanel.setVisible(false);
             this.mapInputPanel.setVisible(false);
 
-            // Switch min and max of betaSlider
+            // Beta slider
             this.betaSlider.setMin(SettingsController.minBetaGraph);
             this.betaSlider.setMax(SettingsController.maxBetaGraph);
 
+            // Infected slider
             this.infectedSlider.setMax(100);
             this.infectedSlider.setBlockIncrement(0.1);
+
+            // Gamma slider
+            this.gammaSlider.setMin(SettingsController.minRecoveryTimeGraph);
+            this.gammaSlider.setMax(SettingsController.maxRecoveryTimeGraph);
+            this.gammaSlider.setValue(SettingsController.defaultRecoveryTimeGraph);
+
+            // Alpha slider
+            this.alphaSlider.setMin(SettingsController.minAlphaGraph);
+            this.alphaSlider.setMax(SettingsController.maxAlphaGraph);
+            this.alphaSlider.setValue(SettingsController.defaultAlphaGraph);
 
             this.spatialisationView.stop();
 

@@ -14,12 +14,15 @@ public class Person implements Model
     private Vec2d position;
     private Vec2d speed;
     private double direction;
-    private State state = State.Safe;
 
-    private boolean masked = true;
+    private boolean masked = false;
     private boolean vaccined = false;
-    private boolean confined = false;
+    private boolean confined = true;
     private boolean quarantained = false;
+
+    private int currentTime = 0;
+    private int stateChangedTime = 0;
+    private State state = State.Safe;
 
     public enum State
     {
@@ -100,7 +103,7 @@ public class Person implements Model
      */
     public void move()
     {
-        if(this.state != State.Dead)
+        if(this.state != State.Dead && !this.confined)
         {
             this.position.x += this.speed.x *  Math.cos(this.direction * Math.PI /180);
             this.position.y += this.speed.y * Math.sin(this.direction * Math.PI /180);
@@ -218,5 +221,21 @@ public class Person implements Model
 
     public void setQuarantained(boolean quarantained) {
         this.quarantained = quarantained;
+    }
+
+    public int getStateChangedTime() {
+        return stateChangedTime;
+    }
+
+    public void setStateChangedTime(int stateChangedTime) {
+        this.stateChangedTime = stateChangedTime;
+    }
+
+    public int getCurrentTime() {
+        return currentTime;
+    }
+
+    public void setCurrentTime(int currentTime) {
+        this.currentTime = currentTime;
     }
 }

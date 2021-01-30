@@ -108,6 +108,7 @@ public class SIR extends SimulationModel
             {
                 state = Person.State.Infected;
                 p1.setState(Person.State.Infected);
+                p1.setStateChangedTime(p1.getCurrentTime());
             }
         }
         return state;
@@ -125,13 +126,15 @@ public class SIR extends SimulationModel
         if(p.getState() == Person.State.Infected)
         {
             Random r = new Random();
-            double min = 0d;
-            double max = 1d;
+            double min = -50d;
+            double max = 50d;
             double randRatio = min + (max - min) * r.nextDouble();
-            if(super.gamma >= randRatio * SettingsController.defaultRecoveryTime)
+            double infectedTime = Math.abs((double)p.getCurrentTime() - (double)p.getStateChangedTime());
+            if(infectedTime >= super.gamma + randRatio)
             {
                 state = Person.State.Recovered;
                 p.setState(Person.State.Recovered);
+                p.setStateChangedTime(p.getCurrentTime());
             }
         }
         return state;

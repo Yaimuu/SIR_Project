@@ -6,6 +6,12 @@
 
 package Model;
 
+import Controller.MainController;
+import Controller.SettingsController;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Vector;
@@ -26,9 +32,9 @@ public abstract class SimulationModel implements Model
 
     public SimulationModel()
     {
-        this.alpha = 0.02;
+        this.alpha = SettingsController.defaultAlphaGraph;
         this.beta = 0.005;
-        this.gamma = 0.3;
+        this.gamma = 0.1;
         this.N = 100;
         this.tSpan = 100;
         this.etatPopulation = new LinkedList<>();
@@ -66,6 +72,40 @@ public abstract class SimulationModel implements Model
             }
             System.out.println(line);
         }
+    }
+
+    public void exportCsv() throws IOException
+    {
+        File csvOutputFile = new File("datas.csv");
+        try (PrintWriter writer = new PrintWriter(csvOutputFile)) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("Temps");
+            sb.append(",");
+            for (String title : this.getModelLabels())
+            {
+                sb.append(title);
+                sb.append(",");
+            }
+            sb.append("\n");
+            for (int i = 0; i < this.getEtatPopulation().size(); i++)
+            {
+                sb.append(i);
+                sb.append(",");
+                for (double value : this.getEtatPopulation().get(i))
+                {
+                    sb.append(value);
+                    sb.append(",");
+                }
+                sb.append("\n");
+            }
+            writer.write(sb.toString());
+            System.out.println("Datas Successfully Exported !");
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+        }
+
     }
 
     protected abstract Vector<Double> calculateStep();

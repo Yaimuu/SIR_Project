@@ -60,6 +60,14 @@ public class PersonView implements View
                     this.person.getPosition().y + (this.person.getRadius()/2),
                     this.person.getRadius()/2, this.person.getRadius()/2);
         }
+
+        if(this.person.isConfined())
+        {
+            this.canvas.getGraphicsContext2D().setFill(Color.BLACK);
+            this.canvas.getGraphicsContext2D().strokeOval(this.person.getPosition().x - this.person.getRadius()*1.5,
+                    this.person.getPosition().y - this.person.getRadius()*1.5,
+                    this.person.getRadius()*3, this.person.getRadius()*3);
+        }
     }
 
     public Person getPerson() {

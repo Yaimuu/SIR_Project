@@ -114,6 +114,7 @@ public class SpatialisationView implements View
         for (PersonView pv: this.bc.getPeople())
         {
             pv.draw();
+            pv.getPerson().setCurrentTime(this.simulationCurrentTime);
         }
 
         if(this.timeLabel != null)

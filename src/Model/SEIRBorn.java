@@ -56,6 +56,7 @@ public class SEIRBorn extends SEIR
     protected Person.State updatePersonState(Person p)
     {
         Person.State state = p.getState();
+        Person.State startState = p.getState();
 
         Random r = new Random();
         double min = 0d;
@@ -70,7 +71,7 @@ public class SEIRBorn extends SEIR
                 state = Person.State.Recovered;
                 p.setState(Person.State.Recovered);
             }
-            else if(this.mu >= randRatio)
+            else if(this.mu >= randRatioDead)
             {
                 state = Person.State.Dead;
                 p.setState(Person.State.Dead);
@@ -84,6 +85,12 @@ public class SEIRBorn extends SEIR
                 p.setState(Person.State.Infected);
             }
         }
+
+        if(startState != state)
+        {
+            p.setStateChangedTime(p.getCurrentTime());
+        }
+
         return state;
     }
 
