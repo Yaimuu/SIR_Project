@@ -27,6 +27,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 
+import javax.imageio.IIOException;
 import java.net.URL;
 import java.util.LinkedList;
 import java.util.List;
@@ -381,12 +382,23 @@ public class MainController implements Initializable, Controller {
             this.mapPanel.setVisible(true);
             this.mapInputPanel.setVisible(true);
 
-            // Switch min and max of betaSlider
+            // Beta slider
             this.betaSlider.setMin(SettingsController.minBetaMap);
             this.betaSlider.setMax(SettingsController.maxBetaMap);
 
+            // Infected slider
             this.infectedSlider.setMax(this.populationSlider.getValue());
             this.infectedSlider.setBlockIncrement(1);
+
+            // Gamma slider
+            this.gammaSlider.setMin(SettingsController.minRecoveryTimeMap);
+            this.gammaSlider.setMax(SettingsController.maxRecoveryTimeMap);
+            this.gammaSlider.setValue(SettingsController.defaultRecoveryTimeMap);
+
+            // Alpha slider
+            this.alphaSlider.setMin(SettingsController.minAlphaMap);
+            this.alphaSlider.setMax(SettingsController.maxAlphaMap);
+            this.alphaSlider.setValue(SettingsController.defaultAlphaMap);
 
             this.toggleSimulation.setText("Graph Visualization");
         }
@@ -398,12 +410,23 @@ public class MainController implements Initializable, Controller {
             this.mapPanel.setVisible(false);
             this.mapInputPanel.setVisible(false);
 
-            // Switch min and max of betaSlider
+            // Beta slider
             this.betaSlider.setMin(SettingsController.minBetaGraph);
             this.betaSlider.setMax(SettingsController.maxBetaGraph);
 
+            // Infected slider
             this.infectedSlider.setMax(100);
             this.infectedSlider.setBlockIncrement(0.1);
+
+            // Gamma slider
+            this.gammaSlider.setMin(SettingsController.minRecoveryTimeGraph);
+            this.gammaSlider.setMax(SettingsController.maxRecoveryTimeGraph);
+            this.gammaSlider.setValue(SettingsController.defaultRecoveryTimeGraph);
+
+            // Alpha slider
+            this.alphaSlider.setMin(SettingsController.minAlphaGraph);
+            this.alphaSlider.setMax(SettingsController.maxAlphaGraph);
+            this.alphaSlider.setValue(SettingsController.defaultAlphaGraph);
 
             this.spatialisationView.stop();
 
@@ -425,5 +448,17 @@ public class MainController implements Initializable, Controller {
             MainController.model.calculateModel();
             this.chartView.draw(this.chartSIR);
         }
+    }
+
+    /**
+     * Exports datas to csv file
+     * @throws IIOException
+     */
+    public void exportCsv() throws IIOException
+    {
+        try {
+            MainController.model.exportCsv();
+        }
+        catch (Exception e) {}
     }
 }

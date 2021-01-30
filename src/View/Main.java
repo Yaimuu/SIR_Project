@@ -17,9 +17,10 @@ public class Main extends Application {
     {
         try
         {
-            SimulationModel test = new SIR();
-            test.calculateModel();
-            test.displayResult();
+//            SimulationModel test = new SIR();
+//            test.calculateModel();
+//            test.displayResult();
+//            test.exportCsv();
 
             // Read file fxml and draw interface.  <Spinner fx:id="spinnerAlpha" layoutX="17.0" layoutY="49.0" prefHeight="25.0" prefWidth="110.0" />
             Parent root = FXMLLoader.load(getClass()

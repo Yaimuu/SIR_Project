@@ -114,6 +114,7 @@ public class SpatialisationView implements View
         for (PersonView pv: this.bc.getPeople())
         {
             pv.draw();
+            pv.getPerson().setCurrentTime(this.simulationCurrentTime);
         }
 
         if(this.timeLabel != null)
@@ -122,6 +123,11 @@ public class SpatialisationView implements View
         }
 
         this.simulationCurrentTime++;
+    }
+
+    public void setPublicPolicie()
+    {
+
     }
 
     public void setPopulationInfected(int n)

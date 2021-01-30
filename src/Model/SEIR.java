@@ -84,6 +84,7 @@ public class SEIR extends SIR
             {
                 state = Person.State.Exposed;
                 p1.setState(Person.State.Exposed);
+                p1.setStateChangedTime(p1.getCurrentTime());
             }
         }
         return state;
@@ -98,15 +99,17 @@ public class SEIR extends SIR
     protected Person.State updatePersonState(Person p)
     {
         Person.State state = p.getState();
+        Person.State startState = p.getState();
 
         Random r = new Random();
         double min = 0d;
         double max = 1d;
         double randRatio = min + (max - min) * r.nextDouble();
+        double infectedTime = Math.abs((double)p.getCurrentTime() - (double)p.getStateChangedTime());
 
         if(p.getState() == Person.State.Infected)
         {
-            if(super.gamma >= randRatio)
+            if(infectedTime >= super.gamma + randRatio)
             {
                 state = Person.State.Recovered;
                 p.setState(Person.State.Recovered);
@@ -114,11 +117,16 @@ public class SEIR extends SIR
         }
         else if(p.getState() == Person.State.Exposed)
         {
-            if(super.alpha >= randRatio)
+            if(infectedTime >= super.alpha + randRatio)
             {
                 state = Person.State.Infected;
                 p.setState(Person.State.Infected);
             }
+        }
+
+        if(startState != state)
+        {
+            p.setStateChangedTime(p.getCurrentTime());
         }
         return state;
     }
