@@ -56,6 +56,11 @@ public class BehaviourController implements Controller
         this.people = this.GeneratePeople(nbPeople);
     }
 
+    /**
+     *
+     * @param nbPeople
+     * @return
+     */
     private List<PersonView> GeneratePeople(int nbPeople)
     {
         List<PersonView> pvs = new LinkedList<PersonView>();
@@ -76,6 +81,10 @@ public class BehaviourController implements Controller
         return pvs;
     }
 
+    /**
+     *
+     * @param active
+     */
     public void confinePeople(boolean active)
     {
         int notAffectedPeople = (int)(this.people.size() * (1 - SettingsController.amountOfConfined));
@@ -92,11 +101,16 @@ public class BehaviourController implements Controller
         }
     }
 
+    /**
+     *
+     * @param active
+     */
     public void maskPeople(boolean active)
     {
+        int notAffectedPeople = (int)(this.people.size() * (1 - SettingsController.amountOfMasked));
         for (int i = 0; i < this.people.size(); i++)
         {
-            if(active)
+            if(active && i <= this.people.size() - notAffectedPeople)
             {
                 this.people.get(i).getPerson().setMasked(true);
             }
@@ -107,9 +121,13 @@ public class BehaviourController implements Controller
         }
     }
 
+    /**
+     *
+     * @param active
+     */
     public void quarantinePeople(boolean active)
     {
-        int notAffectedPeople = (int)(this.people.size() * (1 - SettingsController.amountOfConfined));
+        int notAffectedPeople = (int)(this.people.size() * (1 - SettingsController.amountOfQuarantined));
         for (int i = 0; i < this.people.size(); i++)
         {
             if(active && i <= this.people.size() - notAffectedPeople)
@@ -123,6 +141,21 @@ public class BehaviourController implements Controller
         }
     }
 
+    public void vaccinePeople(boolean active)
+    {
+//        int notAffectedPeople = (int)(this.people.size() * (1 - SettingsController.amountOfConfined));
+//        for (int i = 0; i < this.people.size(); i++)
+//        {
+//            if(active && i <= this.people.size() - notAffectedPeople)
+//            {
+//                this.people.get(i).getPerson().setQuarantained(true);
+//            }
+//            if(!active)
+//            {
+//                this.people.get(i).getPerson().setQuarantained(false);
+//            }
+//        }
+    }
 
     public int getNumberPeople() {
         return numberPeople;

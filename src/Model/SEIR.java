@@ -74,13 +74,17 @@ public class SEIR extends SIR
     protected Person.State spreadInfection(Person p1, Person p2)
     {
         Person.State state = p1.getState();
-        if(p2.getState() == Person.State.Infected && p1.getState() == Person.State.Safe )
+        if(p2.getState() == Person.State.Infected && p1.getState() == Person.State.Safe  && !p1.isQuarantained())
         {
             Random r = new Random();
             double min = 0d;
             double max = 1d;
             double randRatio = min + (max - min) * r.nextDouble();
-            if(super.beta >= randRatio)
+            double contamination = super.beta;
+            if(p1.isMasked())
+                contamination = contamination/10;
+
+            if(contamination >= randRatio)
             {
                 state = Person.State.Exposed;
                 p1.setState(Person.State.Exposed);

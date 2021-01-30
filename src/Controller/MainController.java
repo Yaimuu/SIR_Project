@@ -49,6 +49,19 @@ public class MainController implements Initializable, Controller {
     @FXML
     private ToggleButton toggleSimulation;
 
+    @FXML
+    private ToggleButton maskToggle;
+
+    @FXML
+    private ToggleButton confinementToggle;
+
+    @FXML
+    private ToggleButton quarantineToggle;
+
+    @FXML
+    private ToggleButton vaccineToggle;
+
+
     /**
      * Sliders
      */
@@ -460,5 +473,13 @@ public class MainController implements Initializable, Controller {
             MainController.model.exportCsv();
         }
         catch (Exception e) {}
+    }
+
+    public void togglePolicies()
+    {
+        this.spatialisationView.setConfinementPolicie(this.confinementToggle.isSelected());
+        this.spatialisationView.setVaccinationPolicie(this.vaccineToggle.isSelected());
+        this.spatialisationView.setMaskPolicie(this.maskToggle.isSelected());
+        this.spatialisationView.setQuarantinePolicie(this.quarantineToggle.isSelected());
     }
 }
