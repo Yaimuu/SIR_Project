@@ -76,6 +76,54 @@ public class BehaviourController implements Controller
         return pvs;
     }
 
+    public void confinePeople(boolean active)
+    {
+        int notAffectedPeople = (int)(this.people.size() * (1 - SettingsController.amountOfConfined));
+        for (int i = 0; i < this.people.size(); i++)
+        {
+            if(active && i <= this.people.size() - notAffectedPeople)
+            {
+                this.people.get(i).getPerson().setConfined(true);
+            }
+            if(!active)
+            {
+                this.people.get(i).getPerson().setConfined(false);
+            }
+        }
+    }
+
+    public void maskPeople(boolean active)
+    {
+        for (int i = 0; i < this.people.size(); i++)
+        {
+            if(active)
+            {
+                this.people.get(i).getPerson().setMasked(true);
+            }
+            if(!active)
+            {
+                this.people.get(i).getPerson().setMasked(false);
+            }
+        }
+    }
+
+    public void quarantinePeople(boolean active)
+    {
+        int notAffectedPeople = (int)(this.people.size() * (1 - SettingsController.amountOfConfined));
+        for (int i = 0; i < this.people.size(); i++)
+        {
+            if(active && i <= this.people.size() - notAffectedPeople)
+            {
+                this.people.get(i).getPerson().setQuarantained(true);
+            }
+            if(!active)
+            {
+                this.people.get(i).getPerson().setQuarantained(false);
+            }
+        }
+    }
+
+
     public int getNumberPeople() {
         return numberPeople;
     }

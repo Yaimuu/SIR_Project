@@ -125,6 +125,11 @@ public class SpatialisationView implements View
         this.simulationCurrentTime++;
     }
 
+    public void setPublicPolicie()
+    {
+
+    }
+
     public void setPopulationInfected(int n)
     {
         this.bc.setInitialInfected(n);

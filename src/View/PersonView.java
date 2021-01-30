@@ -61,7 +61,7 @@ public class PersonView implements View
                     this.person.getRadius()/2, this.person.getRadius()/2);
         }
 
-        if(this.person.isConfined())
+        if(this.person.isConfined() || this.person.isQuarantained())
         {
             this.canvas.getGraphicsContext2D().setFill(Color.BLACK);
             this.canvas.getGraphicsContext2D().strokeOval(this.person.getPosition().x - this.person.getRadius()*1.5,

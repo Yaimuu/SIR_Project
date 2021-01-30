@@ -17,7 +17,7 @@ public class Person implements Model
 
     private boolean masked = false;
     private boolean vaccined = false;
-    private boolean confined = true;
+    private boolean confined = false;
     private boolean quarantained = false;
 
     private int currentTime = 0;

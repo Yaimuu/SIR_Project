@@ -74,6 +74,10 @@ public abstract class SimulationModel implements Model
         }
     }
 
+    /**
+     * Exports datas into a csv file
+     * @throws IOException
+     */
     public void exportCsv() throws IOException
     {
         File csvOutputFile = new File("datas.csv");

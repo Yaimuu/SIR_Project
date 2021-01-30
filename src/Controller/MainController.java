@@ -27,6 +27,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 
+import javax.imageio.IIOException;
 import java.net.URL;
 import java.util.LinkedList;
 import java.util.List;
@@ -447,5 +448,17 @@ public class MainController implements Initializable, Controller {
             MainController.model.calculateModel();
             this.chartView.draw(this.chartSIR);
         }
+    }
+
+    /**
+     * Exports datas to csv file
+     * @throws IIOException
+     */
+    public void exportCsv() throws IIOException
+    {
+        try {
+            MainController.model.exportCsv();
+        }
+        catch (Exception e) {}
     }
 }

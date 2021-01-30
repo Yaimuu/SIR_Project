@@ -105,10 +105,10 @@ public class SEIR extends SIR
         double min = 0d;
         double max = 1d;
         double randRatio = min + (max - min) * r.nextDouble();
+        double infectedTime = Math.abs((double)p.getCurrentTime() - (double)p.getStateChangedTime());
 
         if(p.getState() == Person.State.Infected)
         {
-            double infectedTime = Math.abs((double)p.getCurrentTime() - (double)p.getStateChangedTime());
             if(infectedTime >= super.gamma + randRatio)
             {
                 state = Person.State.Recovered;
@@ -117,7 +117,6 @@ public class SEIR extends SIR
         }
         else if(p.getState() == Person.State.Exposed)
         {
-            double infectedTime = Math.abs((double)p.getCurrentTime() - (double)p.getStateChangedTime());
             if(infectedTime >= super.alpha + randRatio)
             {
                 state = Person.State.Infected;

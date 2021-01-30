@@ -26,7 +26,7 @@ public class SettingsController implements Controller
     /**
      * Gamma configuration
      */
-    public static final double minRecoveryTimeMap = 100;
+    public static final double minRecoveryTimeMap = 60;
     public static final double maxRecoveryTimeMap = 600;
     public static final double minRecoveryTimeGraph = 0;
     public static final double maxRecoveryTimeGraph = 1;
@@ -42,11 +42,15 @@ public class SettingsController implements Controller
     public static final double maxAlphaGraph = 300;
     public static final double defaultAlphaMap = 100;
     public static final double defaultAlphaGraph = 0.02;
+
     /**
      * Default spatialisation values
      */
     public static final int defaultPopulation = 100;
     public static final int defaultPopulationInfected = 10;
     public static final int defaultPersonRadius = 10;
+
+    public static final double amountOfConfined = 0.8;
+    public static final double amountOfQuarantined = 0.95;
 
 }
