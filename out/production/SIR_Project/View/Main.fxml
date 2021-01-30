@@ -18,11 +18,17 @@
 
         <Pane id="inputsPanel" fx:id="inputsPanel" layoutX="563.0" layoutY="192.0" prefHeight="498.0" prefWidth="494.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="530.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <Pane id="publicPoliciesPanel" fx:id="publicPoliciesPanel" layoutY="440.0" prefHeight="58.0" prefWidth="484.0">
+                <Pane id="publicPoliciesPanel" fx:id="publicPoliciesPanel" layoutY="426.0" prefHeight="72.0" prefWidth="484.0">
                     <children>
-                        <ToggleButton layoutX="315.0" layoutY="17.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Quarantaine" />
-                        <ToggleButton layoutX="192.0" layoutY="17.0" mnemonicParsing="false" text="Port du masque" />
-                        <ToggleButton layoutX="69.0" layoutY="17.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Confinement" />
+                  <Label layoutX="14.0" layoutY="6.0" text="Politiques publiques" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <ToggleButton fx:id="quarantineToggle" layoutX="334.0" layoutY="36.0" mnemonicParsing="false" onAction="#togglePolicies" text="Quarantaine" />
+                  <ToggleButton fx:id="maskToggle" layoutX="188.0" layoutY="36.0" mnemonicParsing="false" onAction="#togglePolicies" text="Port du masque" />
+                  <ToggleButton fx:id="confinementToggle" layoutX="68.0" layoutY="36.0" mnemonicParsing="false" onAction="#togglePolicies" text="Confinement" />
+                  <ToggleButton fx:id="vaccineToggle" layoutX="14.0" layoutY="36.0" mnemonicParsing="false" onAction="#togglePolicies" text="Vaccination" visible="false" />
                     </children>
                 </Pane>
                 <Pane id="mapInputPanel" fx:id="mapInputPanel" prefHeight="146.0" prefWidth="484.0">
