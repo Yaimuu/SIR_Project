@@ -1,5 +1,5 @@
 /**
- *
+ *  SEIRBorn : Class processing the SEIR model with deaths and new borns
  * @project SIR_Project
  * @authors Yamuu - Gagou
  */

@@ -50,7 +50,7 @@ public class SettingsController implements Controller
     public static final int defaultPersonRadius = 5;
 
     public static final double amountOfConfined = 0.8;
-    public static final double amountOfQuarantined = 0.9;
+    public static final double amountOfQuarantined = 0.2;
     public static final double amountOfMasked = 0.95;
 
 }

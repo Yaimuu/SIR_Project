@@ -1,5 +1,6 @@
 /**
- *
+ *  SpatialisationView : Class processing all the interactions between the MainController (the user interractions) and the BehaviourController.
+ *  This class also draws the population.
  * @project SIR_Project
  * @authors Yamuu - Gagou
  */
@@ -47,6 +48,9 @@ public class SpatialisationView implements View
         this.bc = new BehaviourController(c);
     }
 
+    /**
+     * Starts the simulation
+     */
     public void start()
     {
         if(this.simulationCurrentTime > this.simulationDuration)
@@ -54,11 +58,17 @@ public class SpatialisationView implements View
         timer.start();
     }
 
+    /**
+     * Stops the simulation
+     */
     public void stop()
     {
         timer.stop();
     }
 
+    /**
+     * Resets the simulation
+     */
     public void reset()
     {
         this.simulationCurrentTime = 0;
@@ -66,6 +76,9 @@ public class SpatialisationView implements View
         this.draw();
     }
 
+    /**
+     * Initialize the canvas
+     */
     public void canvasInitialization()
     {
         this.draw();
@@ -79,6 +92,9 @@ public class SpatialisationView implements View
         };
     }
 
+    /**
+     * Updates canvas
+     */
     public void updateCanvas()
     {
         if(this.simulationCurrentTime <= this.simulationDuration)
@@ -104,6 +120,9 @@ public class SpatialisationView implements View
         }
     }
 
+    /**
+     * Draws the population
+     */
     @Override
     public void draw()
     {
@@ -144,8 +163,6 @@ public class SpatialisationView implements View
     {
         // TODO : Vaccinate people
     }
-
-
 
     public void setPopulationInfected(int n)
     {

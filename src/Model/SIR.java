@@ -1,5 +1,5 @@
 /**
- *
+ * SIR : Class processing the SIR model
  * @project SIR_Project
  * @authors Yamuu - Gagou
  */
