@@ -1,3 +1,9 @@
+/**
+ *  Person : Class processing each person individually
+ * @project SIR_Project
+ * @authors Yamuu - Gagou
+ */
+
 package Model;
 
 import Controller.MainController;
@@ -57,6 +63,7 @@ public class Person implements Model
     }
 
     /**
+     * Chacks if two persons are colliding and processes the behaviour of the current person
      * @param p
      */
     public void isCollidingPerson(Person p)
@@ -82,9 +89,9 @@ public class Person implements Model
     }
 
     /**
-     *
-     * @param width
-     * @param heigth
+     *  Checks if the current person is colliding the bounds of the map
+     * @param width Map width
+     * @param heigth Map heigth
      */
     public void isCollidingBounds(double width, double heigth)
     {
@@ -100,13 +107,13 @@ public class Person implements Model
     }
 
     /**
-     *
+     *  Moves the current person
      */
     public void move()
     {
         if(this.state != State.Dead)
         {
-            if(!this.confined)
+            if(!this.confined && !this.quarantained)
             {
                 this.position.x += this.speed.x *  Math.cos(this.direction * Math.PI /180);
                 this.position.y += this.speed.y * Math.sin(this.direction * Math.PI /180);

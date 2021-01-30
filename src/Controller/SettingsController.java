@@ -37,8 +37,8 @@ public class SettingsController implements Controller
      */
     public static final double minAlphaMap = 100;
     public static final double maxAlphaMap = 300;
-    public static final double minAlphaGraph = 100;
-    public static final double maxAlphaGraph = 300;
+    public static final double minAlphaGraph = 0;
+    public static final double maxAlphaGraph = 1;
     public static final double defaultAlphaMap = 100;
     public static final double defaultAlphaGraph = 0.02;
 
@@ -47,10 +47,10 @@ public class SettingsController implements Controller
      */
     public static final int defaultPopulation = 100;
     public static final int defaultPopulationInfected = 10;
-    public static final int defaultPersonRadius = 10;
+    public static final int defaultPersonRadius = 5;
 
     public static final double amountOfConfined = 0.8;
-    public static final double amountOfQuarantined = 0.9;
+    public static final double amountOfQuarantined = 0.2;
     public static final double amountOfMasked = 0.95;
 
 }

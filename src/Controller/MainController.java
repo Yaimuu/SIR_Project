@@ -36,12 +36,14 @@ import java.util.ResourceBundle;
 public class MainController implements Initializable, Controller {
 
     /**
-     * Button
+     * Buttons
      */
     @FXML
     public Button startButton;
     @FXML
     public Button resetButton;
+    @FXML
+    public Button exportCSVButton;
 
     /**
      * Toggles
@@ -305,7 +307,7 @@ public class MainController implements Initializable, Controller {
             public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue)
             {
                 spatialisationView.setPopulationSize( (int)((double)newValue) );
-                populationTextField.setText(newValue.toString());
+                populationTextField.setText((int)((double)newValue) + "");
                 infectedSlider.setMax(populationSlider.getValue());
                 update();
             }
@@ -377,6 +379,11 @@ public class MainController implements Initializable, Controller {
             this.exposedSlider.setDisable(true);
             this.bornSlider.setDisable(true);
         }
+        else if(modelChoosed == 2)
+        {
+            this.exposedSlider.setDisable(false);
+            this.bornSlider.setDisable(false);
+        }
 
         this.chartView.draw(this.chartSIR);
         this.spatialisationView.reset();
@@ -413,6 +420,8 @@ public class MainController implements Initializable, Controller {
             this.alphaSlider.setMax(SettingsController.maxAlphaMap);
             this.alphaSlider.setValue(SettingsController.defaultAlphaMap);
 
+            this.exportCSVButton.setVisible(false);
+
             this.toggleSimulation.setText("Graph Visualization");
         }
         else
@@ -440,6 +449,8 @@ public class MainController implements Initializable, Controller {
             this.alphaSlider.setMin(SettingsController.minAlphaGraph);
             this.alphaSlider.setMax(SettingsController.maxAlphaGraph);
             this.alphaSlider.setValue(SettingsController.defaultAlphaGraph);
+
+            this.exportCSVButton.setVisible(true);
 
             this.spatialisationView.stop();
 

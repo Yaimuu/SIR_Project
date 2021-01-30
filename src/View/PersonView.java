@@ -1,3 +1,9 @@
+/**
+ *  PersonView : Class rendering each person individually
+ * @project SIR_Project
+ * @authors Yamuu - Gagou
+ */
+
 package View;
 
 import Model.Person;
