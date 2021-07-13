@@ -1,6 +1,10 @@
-﻿Gaëtan SCART - Yanis OULED MOUSSA
+# Compte rendu projet SIR - APO
 
-Compte rendu projet SIR - APO
+|**Made by**|**Referent teacher**|
+|:-:|:-:|
+|SCART Gaëtan|Mr. LEFORT Mathieu|
+|OULED MOUSSA Yanis|
+
 # Méthodologie
 Notre méthodologie a été majoritairement basée autour du choix d’une structure pratique. Puis d’adapter ce modèle à nos besoins et envies au fur et à mesure de l’avancement du projet. Nous avons commencé une première version n’ayant pas une structure suffisamment adaptée à notre besoin, nous avons donc vite changé d’avis et repris le projet sous un modèle MVC qui nous paraissait beaucoup plus propre et réutilisable. Pour l’interface nous avons choisi de découvrir une nouvelle librairie JavaFX qui nous paraissait plus intéressante et visuellement plaisante. 
 
@@ -45,35 +49,21 @@ C’est dans cette partie de l’application où les politiques publiques sont p
 
 Les personnes en quarantaine ne bougent plus et ne peuvent plus être infectées mais il n’y a que 20% de la population concernée, par la quarantaine.
 
-
-
-
-
-
-
-
-
-
 - Port du masque :
 
 ![](Aspose.Words.5ab38f6d-3d63-4d03-93f6-11788617032b.004.png)
 
 Le port du masque s’applique à 95% de la population. Il diminue grandement le taux d’infections.
 
+- Confinement :
 
-
-
-
-
-
-
-
-
-- Confinement :![](Aspose.Words.5ab38f6d-3d63-4d03-93f6-11788617032b.005.png)
+![](Aspose.Words.5ab38f6d-3d63-4d03-93f6-11788617032b.005.png)
 
 Le confinement s’applique à 80% de la population et diminue grandement le taux d’infections.
 
-![](Aspose.Words.5ab38f6d-3d63-4d03-93f6-11788617032b.006.png)Conception
+![](Aspose.Words.5ab38f6d-3d63-4d03-93f6-11788617032b.006.png)
+
+## Conception
 
 Comme nous pouvons le voir sur notre diagramme de classe, nous avons choisi de suivre un modèle MVC. Ceci nous paraissait de permettre un schéma de fonctionnement plus clair et plus facile à modifier ou améliorer au futur.
 
