@@ -5,6 +5,8 @@
 |SCART Gaëtan|Mr. LEFORT Mathieu|
 |OULED MOUSSA Yanis|
 
+[Sujet](Projet.pdf)
+
 # Méthodologie
 Notre méthodologie a été majoritairement basée autour du choix d’une structure pratique. Puis d’adapter ce modèle à nos besoins et envies au fur et à mesure de l’avancement du projet. Nous avons commencé une première version n’ayant pas une structure suffisamment adaptée à notre besoin, nous avons donc vite changé d’avis et repris le projet sous un modèle MVC qui nous paraissait beaucoup plus propre et réutilisable. Pour l’interface nous avons choisi de découvrir une nouvelle librairie JavaFX qui nous paraissait plus intéressante et visuellement plaisante. 
 
