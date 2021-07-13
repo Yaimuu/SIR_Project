@@ -9,6 +9,10 @@ Project realised for a Programing Oriented Object (POO) course in Polytech Lyon 
 
 **Grade** : 19.75/20
 
+[Subject](Report/Projet.pdf) (In French)
+
+[Full Report](Report) (In French)
+
 ## Project
 ### Introduction
 
