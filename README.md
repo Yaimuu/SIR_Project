@@ -35,9 +35,9 @@ This model sepaates population in three categories :
 - **I** : Infected people
 - **R** : Retired people (Recovered or dead)
 
-Equations defining this model :
+![image](https://user-images.githubusercontent.com/27727784/125475181-b6432977-d689-4502-bde4-6d86809461d8.png)
 
-![img](http://www.sciweavers.org/tex2img.php?eq=%5Cbegin%7Bcases%7D%20%5Cfrac%7BdS%28t%29%7D%7Bdt%7D%20%26%20%3D%20-%5Cbeta%20S%28t%29%20I%28t%29%5C%5C%20%5Cfrac%7BdI%28t%29%7D%7Bdt%7D%20%26%20%3D%20%5Cbeta%20S%28t%29%20I%28t%29%20-%20%20%5Cgamma%20I%28t%29%5C%5C%20%5Cfrac%7BdR%28t%29%7D%7Bdt%7D%20%26%20%3D%20%5Cgamma%20I%28t%29%20%5Cend%7Bcases%7D%20&bc=White&fc=Black&im=jpg&fs=18&ff=mathdesign&edit=0)
+Equations defining this model :
 
 ![\[\LARGE \begin{cases} \frac{dS(t)}{dt} & = -\beta S(t) I(t)\\ \frac{dI(t)}{dt} & = \beta S(t) I(t) - \gamma I(t)\\ \frac{dR(t)}{dt} & = \gamma I(t) \end{cases}\]
 ](https://latex.codecogs.com/png.latex?%5Cbg_white%20%5CLARGE%20%5Cbegin%7Bcases%7D%20%5Cfrac%7BdS%28t%29%7D%7Bdt%7D%20%26%20%3D%20-%5Cbeta%20S%28t%29%20I%28t%29%5C%5C%20%5Cfrac%7BdI%28t%29%7D%7Bdt%7D%20%26%20%3D%20%5Cbeta%20S%28t%29%20I%28t%29%20-%20%5Cgamma%20I%28t%29%5C%5C%20%5Cfrac%7BdR%28t%29%7D%7Bdt%7D%20%26%20%3D%20%5Cgamma%20I%28t%29%20%5Cend%7Bcases%7D, "\[\LARGE \begin{cases} \frac{dS(t)}{dt} & = -\beta S(t) I(t)\\ \frac{dI(t)}{dt} & = \beta S(t) I(t) - \gamma I(t)\\ \frac{dR(t)}{dt} & = \gamma I(t) \end{cases}\]
