@@ -30,6 +30,10 @@ This project has been inspired by this web page made by a student in mathematics
 
 SIR Model is the simplest model to describe epidemics. It has been proposed in 1927 in relation with the vaccination health policy against smallpox.
 
+**Symbols**
+- **β** : Contamination rate
+- **γ** : Retire rate
+
 This model sepaates population in three categories :
 - **S** : Healthy people
 - **I** : Infected people
@@ -45,6 +49,30 @@ Equations defining this model :
 
 #### SEIR Model
 
+SEIR model is a little more complex model aiming to be more accurate by simulating an incubation period. 
+To do so, a new category **E (Exposed)** has been added to the model. This category is located between healthy and infected people.
 
+**Symbols**
+- **α** : Infectiousness
+
+![image](https://user-images.githubusercontent.com/27727784/125476079-d6f259a3-e658-49d0-ae48-882c4849f514.png)
+
+The new equations :
+
+![image](https://user-images.githubusercontent.com/27727784/125476179-d66924ed-4ec8-4f73-b287-ca52cbaade36.png)
 
 #### SEIR Born Model
+
+This model is similar to SEIR model unlike the population is not constant in this one.
+This model allows longer term studies than the others as the population acts more accurately with borns and deaths of the population.
+
+**Symbols**
+- **η** : Born rate
+- **µ** : Death rate
+
+![image](https://user-images.githubusercontent.com/27727784/125476315-ea545638-0c69-437a-97dd-b6309a5d96d8.png)
+
+New equations :
+
+![image](https://user-images.githubusercontent.com/27727784/125476374-fa66abc7-0d31-41b3-9bd1-8a64a5ad7af0.png)
+
